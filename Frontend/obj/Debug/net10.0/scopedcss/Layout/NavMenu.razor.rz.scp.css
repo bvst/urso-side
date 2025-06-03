@@ -1,0 +1,46 @@
+nav[b-fpiqm1rjhp] {
+    background-image: url('/path-to-your-image.jpg'); /* Replace with the actual path to your image */
+    background-size: cover; /* Ensure the image covers the entire navbar */
+    background-position: center; /* Center the image */
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1000;
+}
+
+/* Adjust body margin to ensure content starts below the navbar */
+body[b-fpiqm1rjhp] {
+    margin-top: 5rem; /* Adjust based on the navbar height */
+}
+
+nav ul[b-fpiqm1rjhp] {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem; /* Add spacing between links */
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li[b-fpiqm1rjhp] {
+    margin: 0;
+}
+
+nav ul li a[b-fpiqm1rjhp] {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover[b-fpiqm1rjhp] {
+    background-color: var(--secondary-accent-color);
+    color: var(--primary-color);
+}

@@ -1,0 +1,15 @@
+﻿@page "/"
+
+<h1>Velkommen til Urso</h1>
+<p>Vi tilbyr banebrytende IT-løsninger for å hjelpe din virksomhet med å lykkes i den digitale tidsalderen.</p>
+
+<button @onclick="TakeSnapshot">Last opp øyeblikksbilde</button>
+
+@inject IJSRuntime JSRuntime
+
+@code {
+    private async Task TakeSnapshot()
+    {
+        await JSRuntime.InvokeVoidAsync("captureSnapshotAndUpload");
+    }
+}
