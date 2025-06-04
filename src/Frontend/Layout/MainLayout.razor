@@ -1,17 +1,43 @@
 ﻿@inherits LayoutComponentBase
 <div class="page">
-    <header>
+    <header class="urso-header">
         <NavMenu />
     </header>
 
-    <main>
-        <div class="top-row px-4">
-            <h1>Welcome to Our IT Solutions</h1>
-            <p>Your trusted partner in innovative IT services in Norway.</p>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
+    <main class="urso-main">
+        @Body
     </main>
+
+    <footer class="urso-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-text">Urso</span>
+                    </div>
+                    <p class="footer-tagline">IT-konsulent med menneskelig varme</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Tjenester</h4>
+                        <ul>
+                            <li><a href="#utvikling">Systemutvikling</a></li>
+                            <li><a href="#konsultasjon">IT-konsultasjon</a></li>
+                            <li><a href="#arkitektur">Arkitektur</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Kontakt</h4>
+                        <ul>
+                            <li><a href="mailto:kontakt@urso.no">kontakt@urso.no</a></li>
+                            <li><a href="tel:+4741234567">+47 412 34 567</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Urso. Alle rettigheter forbeholdt.</p>
+            </div>
+        </div>
+    </footer>
 </div>

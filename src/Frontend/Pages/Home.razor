@@ -1,15 +1,104 @@
 ﻿@page "/"
 
-<h1>Velkommen til Urso</h1>
-<p>Vi tilbyr banebrytende IT-løsninger for å hjelpe din virksomhet med å lykkes i den digitale tidsalderen.</p>
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">IT-konsulent med <span class="highlight">menneskelig varme</span></h1>
+                <p class="hero-subtitle">
+                    Vi leverer kompetente teknologiløsninger bygget på tillit, kompetanse og innovasjon. 
+                    Hos Urso får du ikke bare teknisk ekspertise, men en partner som forstår ditt behov.
+                </p>
+                <div class="hero-actions">
+                    <a href="/contact" class="btn btn-primary btn-large">Ta kontakt</a>
+                    <a href="/about" class="btn btn-secondary btn-large">Les mer om oss</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="card-icon">💻</div>
+                    <h3>Moderne teknologi</h3>
+                    <p>Skreddersydde løsninger</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<button @onclick="TakeSnapshot">Last opp øyeblikksbilde</button>
+<section class="services">
+    <div class="container">
+        <div class="section-header">
+            <h2>Våre tjenester</h2>
+            <p>Vi tilbyr komplette IT-løsninger tilpasset dine behov</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Systemutvikling</h3>
+                <p>Skreddersydde applikasjoner og systemer som løser dine utfordringer effektivt.</p>
+                <ul class="service-features">
+                    <li>Web- og mobilapplikasjoner</li>
+                    <li>API-utvikling</li>
+                    <li>Databasedesign</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🧭</div>
+                <h3>IT-konsultasjon</h3>
+                <p>Strategisk veiledning for å optimalisere dine teknologiinvesteringer.</p>
+                <ul class="service-features">
+                    <li>Teknologistrategi</li>
+                    <li>Prosessoptimalisering</li>
+                    <li>Digital transformasjon</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🏛️</div>
+                <h3>Arkitektur & Design</h3>
+                <p>Robust og skalerbar systemarkitektur for fremtidens behov.</p>
+                <ul class="service-features">
+                    <li>Systemarkitektur</li>
+                    <li>Cloud-løsninger</li>
+                    <li>Sikkerhetsvurderinger</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 
-@inject IJSRuntime JSRuntime
-
-@code {
-    private async Task TakeSnapshot()
-    {
-        await JSRuntime.InvokeVoidAsync("captureSnapshotAndUpload");
-    }
-}
+<section class="values">
+    <div class="container">
+        <div class="section-header">
+            <h2>Våre verdier</h2>
+            <p>Det som driver oss hver dag</p>
+        </div>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3>Tillit</h3>
+                <p>Vi bygger varige relasjoner basert på ærlighet, transparens og pålitelighet.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">🎯</div>
+                <h3>Kompetanse</h3>
+                <p>Dyp teknisk ekspertise kombinert med forretningsforståelse.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">💡</div>
+                <h3>Innovasjon</h3>
+                <p>Vi utforsker nye muligheter og løsninger for å skape verdi.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">❤️</div>
+                <h3>Menneskelig varme</h3>
+                <p>Teknologi med et menneskelig ansikt - vi bryr oss om deg og din suksess.</p>
+            </div>
+        </div>    </div>
+</section>

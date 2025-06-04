@@ -1,34 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Frontend</title>
+    <title>Urso - IT-konsulent med menneskelig varme</title>
+    <meta name="description" content="Urso leverer kompetente teknologiløsninger med menneskelig varme og forståelse. Vi er din pålitelige IT-konsulentpartner." />
     <base href="/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link href="Frontend.styles.css" rel="stylesheet" />
 </head>
 
-<body>
+<body>    
     <div id="app">
-        <svg class="loading-progress">
-            <circle r="40%" cx="50%" cy="50%" />
-            <circle r="40%" cx="50%" cy="50%" />
-        </svg>
-        <div class="loading-progress-text"></div>
+        <div class="loading-container">
+            <div class="urso-loader">
+                <div class="bear-icon"></div>
+                <div class="loading-text">Laster Urso...</div>
+            </div>
+        </div>
     </div>
 
     <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="." class="reload">Reload</a>
-        <span class="dismiss">🗙</span>
-    </div>
-    <script src="_framework/blazor.webassembly.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="js/snapshot.js"></script>
+        <div class="error-content">
+            <h3>Ops! Noe gikk galt</h3>
+            <p>En uventet feil oppstod. Vennligst prøv igjen.</p>
+            <button class="reload">Last inn på nytt</button>
+            <span class="dismiss">×</span>
+        </div>
+    </div>    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="js/urso.js"></script>
 </body>
 
 </html>

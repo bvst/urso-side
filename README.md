@@ -1,31 +1,118 @@
 # Urso Website
 
-Urso er et IT-konsulentselskap med navn inspirert av det portugisiske ordet for bjørn. 
+Urso er et IT-konsulentselskap med navn inspirert av det portugisiske ordet for bjørn.
 
-- **Verdier:** Tillit, kompetanse, innovasjon, menneskelighet.
-- **Stil:** Moderne, minimalistisk og profesjonelt.
+- **Visjon:** Være en pålitelig og innovativ IT-konsulentpartner
+- **Misjon:** Levere kompetente teknologiløsninger med menneskelig varme og forståelse
+- **Verdier:** Tillit, kompetanse, innovasjon, menneskelighet
+- **Stil:** Moderne, minimalistisk og profesjonelt
 - **Primærfarger:** Dyp blå (#1F3B4D), Bjørnebrun (#6F4E37)
 
-This project consists of:
+Dette prosjektet består av:
 
-1. **Backend**: A .NET Core Web API project located in the `src/Backend` folder.
-2. **Frontend**: A Blazor WebAssembly project located in the `src/Frontend` folder.
-3. **Tests**: Unit tests located in the `test/Backend.Tests` folder.
+1. **Backend**: .NET Core Web API i `src/Backend` mappen
+2. **Frontend**: Blazor WebAssembly applikasjon i `src/Frontend` mappen
+3. **Tests**: NUnit tester i `test/Backend.Tests` mappen
 
-## Project Structure
+## Prosjektstruktur
 
-```
+```text
 ├── src/
 │   ├── Backend/           # .NET Core Web API
-│   └── Frontend/          # Blazor WebAssembly
+│   └── Frontend/          # Blazor WebAssembly (Norsk språk)
 ├── test/
-│   └── Backend.Tests/     # NUnit tests for Backend
+│   └── Backend.Tests/     # NUnit tester for Backend
 ├── docs/
-│   └── brand-guidelines.md # Brand guidelines and design specifications
-├── .gitignore             # Git ignore file
-├── UrsoSide.sln          # Solution file
-└── README.md             # This file
+│   └── brand-guidelines.md # Merkevareretningslinjer og designspesifikasjoner
+├── .gitignore             # Git ignore fil
+├── UrsoSide.sln          # Solution fil
+└── README.md             # Denne filen
 ```
+
+## Kom i gang
+
+### Forutsetninger
+
+- .NET 10.0 SDK eller nyere
+- Git
+
+### Klone prosjektet
+
+```bash
+git clone <repository-url>
+cd urso-side
+```
+
+### Kjør Backend
+
+```bash
+dotnet run --project src/Backend
+```
+
+Backend kjører på `http://localhost:5000` (HTTP) og `https://localhost:5001` (HTTPS).
+
+### Kjør Frontend
+
+```bash
+dotnet run --project src/Frontend
+```
+
+Frontend kjører på `http://localhost:5167`.
+
+### Kjør tester
+
+```bash
+dotnet test
+```
+
+## Utviklingsinformasjon
+
+### Teknologi Stack
+
+- **Backend**: .NET 10, ASP.NET Core
+- **Frontend**: Blazor WebAssembly, C#, HTML5, CSS3
+- **Testing**: NUnit, .NET Test Framework
+- **Styling**: Custom CSS med Urso merkevareidentitet
+
+### Funksjoner
+
+#### Frontend
+
+- 🇳🇴 **Norsk språk** - Hele nettsiden på norsk
+- 📱 **Responsiv design** - Optimalisert for mobil, nettbrett og desktop
+- 🎨 **Urso merkevareidentitet** - Konsistent bruk av farger og typografi
+- ✨ **Animasjoner** - Subtile overgangseffekter og scroll-animasjoner
+- ♿ **Tilgjengelighet** - WCAG-kompatibel design
+- 🚀 **Ytelse** - Optimalisert for rask lasting
+
+#### Backend
+
+- 🔌 **RESTful API** - Standard HTTP API endpoints
+- 📝 **OpenAPI/Swagger** - API dokumentasjon
+- 🛡️ **CORS** - Konfigurert for frontend integrasjon
+
+### Sider
+
+- **Hjem** (`/`) - Hero-seksjon, tjenesteoversikt og verdier
+- **Om oss** (`/about`) - Bedriftsinformasjon og historie
+- **Tjenester** (`/tjenester`) - Detaljert oversikt over IT-tjenester
+- **Kontakt** (`/contact`) - Kontaktinformasjon og skjema
+
+### Bygging for produksjon
+
+```bash
+dotnet publish src/Frontend -c Release -o publish/frontend
+dotnet publish src/Backend -c Release -o publish/backend
+```
+
+## Bidrag
+
+Dette prosjektet følger Urso sine verdier:
+
+- **Tillit**: Pålitelig kode og dokumentasjon
+- **Kompetanse**: Beste praksis og moderne teknologi
+- **Innovasjon**: Kreative løsninger og nye tilnærminger
+- **Menneskelighet**: Fokus på brukeropplevelse og tilgjengelighet
 
 ## Getting Started
 
@@ -40,16 +127,19 @@ This project consists of:
 3. Run `dotnet build` to build the solution.
 
 #### Running Backend Only
+
 ```bash
 dotnet run --project src/Backend
 ```
 
 #### Running Frontend Only
+
 ```bash
 dotnet run --project src/Frontend
 ```
 
 #### Running Tests
+
 ```bash
 dotnet test
 ```

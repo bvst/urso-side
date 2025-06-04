@@ -1,11 +1,40 @@
 ﻿@using Microsoft.AspNetCore.Components
-
 @using Microsoft.AspNetCore.Components.Routing
 
-<nav>
-    <ul>
-        <li><NavLink href="/" Match="NavLinkMatch.All">Urso Hjem</NavLink></li>
-        <li><NavLink href="/about">Om Urso</NavLink></li>
-        <li><NavLink href="/contact">Kontakt Urso</NavLink></li>
-    </ul>
+<nav class="urso-nav">
+    <div class="nav-container">
+        <div class="nav-brand">
+            <NavLink href="/" class="brand-link">
+                <div class="logo">
+                    <span class="logo-icon">🐻</span>
+                    <span class="logo-text">Urso</span>
+                </div>
+            </NavLink>
+        </div>
+        
+        <div class="nav-menu" id="navMenu">
+            <ul class="nav-links">
+                <li><NavLink href="/" Match="NavLinkMatch.All" class="nav-link">Hjem</NavLink></li>
+                <li><NavLink href="/about" class="nav-link">Om oss</NavLink></li>
+                <li><NavLink href="/tjenester" class="nav-link">Tjenester</NavLink></li>
+                <li><NavLink href="/contact" class="nav-link">Kontakt</NavLink></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="/contact" class="btn btn-primary">Ta kontakt</a>
+            </div>
+        </div>
+        
+        <button class="nav-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
 </nav>
+
+<script>
+    function toggleMenu() {
+        const navMenu = document.getElementById('navMenu');
+        navMenu.classList.toggle('active');
+    }
+</script>

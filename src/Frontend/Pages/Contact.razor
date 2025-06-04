@@ -1,4 +1,242 @@
 @page "/contact"
 
-<h1>Kontakt Oss</h1>
-<p>Har du spørsmål? Ta kontakt med oss på <a href="mailto:info@youritcompany.com">info@youritcompany.com</a>.</p>
+<section class="page-hero">
+    <div class="container">
+        <div class="page-hero-content">
+            <h1>Ta kontakt med oss</h1>
+            <p class="lead">Vi ser frem til å høre om ditt prosjekt og diskutere hvordan vi kan hjelpe.</p>
+        </div>
+    </div>
+</section>
+
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>La oss snakke sammen</h2>
+                <p>
+                    Vi tilbyr alltid en uforpliktende konsultasjon hvor vi diskuterer 
+                    dine behov og hvordan vi kan løse dem.
+                </p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="method-icon">📧</div>
+                        <div class="method-content">
+                            <h3>E-post</h3>
+                            <p><a href="mailto:kontakt@urso.no">kontakt@urso.no</a></p>
+                            <small>Vi svarer vanligvis innen 24 timer</small>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="method-icon">📞</div>
+                        <div class="method-content">
+                            <h3>Telefon</h3>
+                            <p><a href="tel:+4741234567">+47 412 34 567</a></p>
+                            <small>Mandag-fredag 09:00-17:00</small>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="method-icon">💬</div>
+                        <div class="method-content">
+                            <h3>Videomøte</h3>
+                            <p>Book et 30 minutters videomøte</p>
+                            <small>Gratis og uforpliktende</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="response-time">
+                    <div class="response-badge">
+                        <span class="badge-icon">⚡</span>
+                        <span>Rask respons: Vi svarer innen 24 timer</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form-container">
+                <div class="contact-form-card">
+                    <h3>Send oss en melding</h3>
+                    <form class="contact-form" @onsubmit="HandleSubmit" @onsubmit:preventDefault="true">
+                        <div class="form-group">
+                            <label for="name">Navn *</label>
+                            <input type="text" id="name" @bind="contactForm.Name" required class="form-input" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-post *</label>
+                            <input type="email" id="email" @bind="contactForm.Email" required class="form-input" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Bedrift</label>
+                            <input type="text" id="company" @bind="contactForm.Company" class="form-input" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" @bind="contactForm.Phone" class="form-input" />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="projectType">Type prosjekt</label>
+                            <select id="projectType" @bind="contactForm.ProjectType" class="form-select">
+                                <option value="">Velg type prosjekt</option>
+                                <option value="webapp">Webapplikasjon</option>
+                                <option value="mobile">Mobilapplikasjon</option>
+                                <option value="api">API utvikling</option>
+                                <option value="consultation">IT-konsultasjon</option>
+                                <option value="architecture">Systemarkitektur</option>
+                                <option value="integration">Integrasjoner</option>
+                                <option value="other">Annet</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget">Estimert budsjett</label>
+                            <select id="budget" @bind="contactForm.Budget" class="form-select">
+                                <option value="">Velg budsjettramme</option>
+                                <option value="under-100k">Under 100.000 kr</option>
+                                <option value="100k-300k">100.000 - 300.000 kr</option>
+                                <option value="300k-500k">300.000 - 500.000 kr</option>
+                                <option value="500k-1m">500.000 - 1.000.000 kr</option>
+                                <option value="over-1m">Over 1.000.000 kr</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timeline">Ønsket oppstart</label>
+                            <select id="timeline" @bind="contactForm.Timeline" class="form-select">
+                                <option value="">Velg tidsramme</option>
+                                <option value="asap">Snarest mulig</option>
+                                <option value="1-month">Innen 1 måned</option>
+                                <option value="3-months">Innen 3 måneder</option>
+                                <option value="6-months">Innen 6 måneder</option>
+                                <option value="flexible">Fleksibel</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Prosjektbeskrivelse *</label>
+                            <textarea id="message" @bind="contactForm.Message" required class="form-textarea" 
+                                      placeholder="Beskriv kort hva du ønsker hjelp med. Jo mer informasjon, desto bedre kan vi hjelpe deg."></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-large" disabled="@isSubmitting">
+                                @if (isSubmitting)
+                                {
+                                    <span>Sender...</span>
+                                }
+                                else
+                                {
+                                    <span>Send melding</span>
+                                }
+                            </button>
+                        </div>
+                        
+                        @if (!string.IsNullOrEmpty(submitMessage))
+                        {
+                            <div class="submit-message @(submitSuccess ? "success" : "error")">
+                                @submitMessage
+                            </div>
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Ofte stilte spørsmål</h2>
+            <p>Svar på de vanligste spørsmålene vi får</p>
+        </div>
+        
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h3>Hvor lang tid tar et typisk prosjekt?</h3>
+                <p>
+                    Det varierer basert på kompleksitet. Enkle webapplikasjoner kan ta 4-8 uker, 
+                    mens større systemer kan ta 3-6 måneder eller mer. Vi gir alltid en detaljert 
+                    tidsplan tidlig i prosessen.
+                </p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Tilbyr dere vedlikehold etter lansering?</h3>
+                <p>
+                    Ja, vi tilbyr både akutt support og planlagt vedlikehold. Vi kan også 
+                    videreutvikle systemet etter hvert som dine behov endrer seg.
+                </p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Hvor mye koster et prosjekt?</h3>
+                <p>
+                    Prisene varierer betydelig basert på omfang og kompleksitet. Vi tilbyr 
+                    alltid en gratis konsultasjon hvor vi kan gi deg et estimat basert på 
+                    dine spesifikke behov.
+                </p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Jobber dere med små bedrifter?</h3>
+                <p>
+                    Absolutt! Vi jobber med alt fra enkeltpersonforetak til store konsern. 
+                    Vi tilpasser våre tjenester til din størrelse og budsjett.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+@code {
+    private ContactFormModel contactForm = new();
+    private bool isSubmitting = false;
+    private string submitMessage = "";
+    private bool submitSuccess = false;
+
+    private async Task HandleSubmit()
+    {
+        isSubmitting = true;
+        submitMessage = "";
+        
+        try
+        {
+            // Simulate form submission
+            await Task.Delay(1000);
+            
+            // Here you would typically send the form to your backend API
+            // For now, we'll just simulate success
+            submitSuccess = true;
+            submitMessage = "Takk for din henvendelse! Vi kommer tilbake til deg innen 24 timer.";
+            contactForm = new(); // Reset form
+        }
+        catch (Exception)
+        {
+            submitSuccess = false;
+            submitMessage = "Beklager, det oppstod en feil. Vennligst prøv igjen eller send oss en e-post direkte.";
+        }
+        finally
+        {
+            isSubmitting = false;
+        }
+    }
+
+    public class ContactFormModel
+    {
+        public string Name { get; set; } = "";
+        public string Email { get; set; } = "";
+        public string Company { get; set; } = "";
+        public string Phone { get; set; } = "";
+        public string ProjectType { get; set; } = "";
+        public string Budget { get; set; } = "";
+        public string Timeline { get; set; } = "";
+        public string Message { get; set; } = "";
+    }
+}
