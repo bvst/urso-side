@@ -16,6 +16,13 @@ Dette prosjektet består av:
 2. **Frontend**: Blazor WebAssembly applikasjon i `src/Frontend` mappen
 3. **Tests**: NUnit tester i `test/Backend.Tests` mappen
 
+## 📚 Dokumentasjon
+
+- **[Komplett Dokumentasjon](docs/README.md)** - Hovedindeks for all dokumentasjon
+- **[Deploy Guide](docs/deployment/DEPLOY-GUIDE.md)** - Slik deployer du til Netlify
+- **[PowerShell Build](docs/development/POWERSHELL-COMPLETE.md)** - Build system guide
+- **[Brand Guidelines](docs/brand-guidelines.md)** - Urso merkevareretningslinjer
+
 ## Prosjektstruktur
 
 ```text
@@ -25,11 +32,48 @@ Dette prosjektet består av:
 ├── test/
 │   └── Backend.Tests/     # NUnit tester for Backend
 ├── docs/
-│   └── brand-guidelines.md # Merkevareretningslinjer og designspesifikasjoner
-├── .gitignore             # Git ignore fil
+│   ├── README.md          # Dokumentasjonsindeks
+│   ├── deployment/        # Deployment guider
+│   ├── development/       # Development guider
+│   └── brand-guidelines.md # Merkevareretningslinjer
+├── build.ps1             # PowerShell build script
+├── netlify.toml          # Netlify konfigrasjon
 ├── UrsoSide.sln          # Solution fil
 └── README.md             # Denne filen
 ```
+
+## 🚀 Quick Start
+
+### Bygg og Kjør Lokalt
+
+```powershell
+# Klon prosjektet
+git clone <repository-url>
+cd urso-side
+
+# Bygg frontend
+.\build.ps1
+
+# Kjør backend
+dotnet run --project src/Backend
+
+# Kjør frontend (nytt terminal)
+dotnet run --project src/Frontend
+```
+
+**🌐 Frontend:** http://localhost:5167  
+**🔌 Backend:** http://localhost:5000
+
+### Deploy til Netlify
+
+```powershell
+# Push til GitHub for automatisk deploy
+git add .
+git commit -m "Deploy til Netlify"
+git push origin main
+```
+
+**📖 Komplett guide:** [docs/deployment/DEPLOY-GUIDE.md](docs/deployment/DEPLOY-GUIDE.md)
 
 ## Kom i gang
 

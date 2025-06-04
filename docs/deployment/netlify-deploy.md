@@ -40,6 +40,7 @@ Prosjektet inneholder følgende Netlify-konfigurasjonsfiler:
 ### Metode 2: Manual Deploy
 
 1. **Bygg lokalt:**
+
    ```powershell
    # Windows
    .\build.ps1
