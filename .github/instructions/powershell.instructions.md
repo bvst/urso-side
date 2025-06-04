@@ -4,18 +4,21 @@ applyTo: '**/*.ps1'
 # PowerShell Instruksjoner for Urso
 
 ## Generelle Prinsipper
+
 - Følg PowerShell beste praksis og konvensjoner
 - Skriv robuste scripts med omfattende feilhåndtering
 - Bruk farger og emojis for bedre brukeropplevelse
 - Inkluder detaljert logging og status-oppdateringer
 
 ## Navngivningskonvensjoner
+
 - **Funksjoner**: Bruk Verb-Noun format (f.eks. `Write-Step`, `Test-Path`)
 - **Variabler**: Bruk camelCase (f.eks. `$currentPath`, `$buildSuccess`)
 - **Parametere**: Bruk PascalCase (f.eks. `-Clean`, `-Verbose`)
 - **Konstanter**: Bruk PascalCase (f.eks. `$SuccessColor`)
 
 ## Script Struktur
+
 ```powershell
 # Script header med beskrivelse
 param(
@@ -40,6 +43,7 @@ function Write-Step {
 ```
 
 ## Parametere og Input
+
 - Bruk `param()` blokk øverst i scriptet
 - Definer standard verdier for alle parametere
 - Bruk `[switch]` for boolean flagg
@@ -56,6 +60,7 @@ param(
 ```
 
 ## Feilhåndtering
+
 - Bruk `try-catch` blokker for kritiske operasjoner
 - Sjekk `$LASTEXITCODE` etter eksterne kommandoer
 - Avslutt med `exit 1` ved feil
@@ -74,6 +79,7 @@ try {
 ```
 
 ## Output og Logging
+
 - Bruk farger for å skille forskjellige typer meldinger
 - Inkluder emojis for bedre visuell identifikasjon
 - Opprett dedikerte funksjoner for forskjellige meldings-typer
@@ -96,6 +102,7 @@ function Write-Warning {
 ```
 
 ## Validering og Sikkerhet
+
 - Valider at nødvendige filer og mapper eksisterer
 - Sjekk at påkrevde verktøy er installert
 - Bruk `Test-Path` for å verifisere fil-/mappestier
@@ -112,6 +119,7 @@ foreach ($file in $requiredFiles) {
 ```
 
 ## Performance og Optimalisering
+
 - Bruk `--verbosity quiet` for mindre output når ikke nødvendig
 - Implementer `-Verbose` parameter for detaljert debugging
 - Vis fremdriftsindikatorer for langvarige operasjoner
@@ -128,6 +136,7 @@ dotnet build --verbosity $verbosity
 ```
 
 ## Brukeropplevelse
+
 - Start med klar header som identifiserer scriptet
 - Vis fremdrift med step-by-step meldinger
 - Inkluder statistikk og oppsummering på slutten
@@ -146,12 +155,14 @@ Write-Host "   📦 Størrelse: $sizeInMB MB" -ForegroundColor Cyan
 ```
 
 ## Kompatibilitet
+
 - Test på både PowerShell 5.1 og PowerShell 7+
 - Bruk kompatible kommandoer og syntax
 - Håndter Windows-spesifikke sti-separatorer
 - Dokumenter minimum PowerShell versjon
 
 ## Dokumentasjon
+
 - Inkluder tydelige kommentarer for kompleks logikk
 - Bruk comment-based help for omfattende scripts
 - Dokumenter alle parametere og deres formål
@@ -183,12 +194,14 @@ Bygger med cleanup og detaljert output
 ```
 
 ## Urso-Spesifikke Konvensjoner
+
 - Bruk bjørn-emoji (🐻) i Urso-relaterte scripts
 - Inkluder Urso merkevarefarger i output hvor relevant
 - Følg norsk språk i bruker-vendte meldinger
 - Reflekter Urso verdier: tillit, kompetanse, innovasjon, menneskelighet
 
 ## Testing og Kvalitetssikring
+
 - Test scripts på ren system før deployment
 - Valider at alle feil-scenarier håndteres gracefully
 - Sjekk at scripts kjører uten administrative rettigheter når mulig

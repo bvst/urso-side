@@ -1,0 +1,60 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Backend API",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-backend",
+            "program": "${workspaceFolder}/src/Backend/bin/Debug/net10.0/Backend.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Backend",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s/swagger"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        {
+            "name": "Launch Frontend Blazor",
+            "type": "blazorwasm",
+            "request": "launch",
+            "preLaunchTask": "build-frontend",
+            "cwd": "${workspaceFolder}/src/Frontend",
+            "url": "https://localhost:7061"
+        },
+        {
+            "name": "Launch Full Application",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-all",
+            "program": "${workspaceFolder}/src/Backend/bin/Debug/net10.0/Backend.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Backend",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Launch Backend + Frontend",
+            "configurations": [
+                "Launch Backend API",
+                "Launch Frontend Blazor"
+            ],
+            "stopAll": true
+        }
+    ]
+}

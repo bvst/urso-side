@@ -1,0 +1,223 @@
+/* About page specific styles */
+
+/* About Story Section */
+.about-story {
+    padding: 4rem 0;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.story-content h2 {
+    margin-bottom: 2rem;
+}
+
+.story-highlights {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.highlight-item {
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+}
+
+.highlight-item strong {
+    display: block;
+    font-size: 2rem;
+    color: var(--urso-primary);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.highlight-item span {
+    color: var(--urso-text-light);
+    font-size: 0.9rem;
+}
+
+.story-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.about-card {
+    background: var(--urso-white);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-medium);
+    padding: 2rem;
+    max-width: 350px;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--urso-light-gray);
+}
+
+.card-icon {
+    font-size: 2rem;
+}
+
+.card-header h3 {
+    color: var(--urso-primary);
+    margin: 0;
+}
+
+.card-content p {
+    font-style: italic;
+    color: var(--urso-text-light);
+    margin: 0;
+}
+
+/* Approach Section */
+.approach {
+    padding: 4rem 0;
+    background: var(--urso-background);
+}
+
+.approach-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.step {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.step-number {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--urso-primary);
+    color: var(--urso-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.step-content h3 {
+    color: var(--urso-primary);
+    margin-bottom: 0.5rem;
+}
+
+.step-content p {
+    color: var(--urso-text-light);
+    margin: 0;
+}
+
+/* Expertise Section */
+.expertise {
+    padding: 4rem 0;
+}
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.expertise-category {
+    background: var(--urso-white);
+    padding: 2rem;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-soft);
+}
+
+.expertise-category h3 {
+    color: var(--urso-primary);
+    margin-bottom: 1.5rem;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tag {
+    background: var(--urso-background);
+    color: var(--urso-text-dark);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    border: 1px solid var(--urso-light-gray);
+    transition: var(--transition);
+}
+
+.tech-tag:hover {
+    background: var(--urso-primary);
+    color: var(--urso-white);
+    border-color: var(--urso-primary);
+}
+
+/* CTA Section (shared but mainly used on About page) */
+.cta-section {
+    padding: 4rem 0;
+    background: var(--urso-primary);
+    color: var(--urso-white);
+    text-align: center;
+}
+
+.cta-content h2 {
+    color: var(--urso-white);
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+}
+
+.cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive Design for About Page */
+@media (max-width: 768px) {
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .story-highlights {
+        justify-content: center;
+    }
+    
+    .approach-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-story,
+    .approach,
+    .expertise {
+        padding: 2rem 0;
+    }
+}

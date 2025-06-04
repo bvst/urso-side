@@ -4,12 +4,14 @@ applyTo: '**/*.json'
 # JSON Konfigurasjon Instruksjoner for Urso
 
 ## Generelle Prinsipper
+
 - Bruk konsistent formatering og innrykk (2 eller 4 spaces)
 - Sorter keys alfabetisk når det er praktisk
 - Bruk beskrivende egenskapsnavn
 - Valider JSON syntax før commit
 
 ## Package.json Struktur
+
 ```json
 {
   "name": "urso-frontend",
@@ -28,12 +30,14 @@ applyTo: '**/*.json'
 ```
 
 ## Project Files (.csproj som JSON-lignende)
+
 - Organiser properties logisk
 - Bruk beskrivende kommentarer
 - Gruppér relaterte ItemGroups
 - Versjon dependencies eksplisitt
 
 ## Configuration Files (appsettings.json)
+
 ```json
 {
   "Logging": {
@@ -57,6 +61,7 @@ applyTo: '**/*.json'
 ```
 
 ## Environment-Specific Configuration
+
 - Bruk miljø-spesifikke filer (appsettings.Development.json)
 - Aldri commit sensitive data som passwords
 - Bruk environment variables for secrets
@@ -81,6 +86,7 @@ applyTo: '**/*.json'
 ```
 
 ## Launch Settings (launchSettings.json)
+
 ```json
 {
   "profiles": {
@@ -107,6 +113,7 @@ applyTo: '**/*.json'
 ```
 
 ## API Response Formats
+
 - Bruk konsistente property names (camelCase for JSON)
 - Inkluder metadata for paginering og status
 - Implementer standard error response format
@@ -135,6 +142,7 @@ applyTo: '**/*.json'
 ```
 
 ## Error Response Format
+
 ```json
 {
   "success": false,
@@ -153,6 +161,7 @@ applyTo: '**/*.json'
 ```
 
 ## Manifest Files
+
 ```json
 {
   "name": "Urso IT-konsulent",
@@ -178,6 +187,7 @@ applyTo: '**/*.json'
 ```
 
 ## Internationalization (i18n)
+
 ```json
 {
   "nav": {
@@ -198,6 +208,7 @@ applyTo: '**/*.json'
 ```
 
 ## Test Configuration
+
 ```json
 {
   "testRunner": "NUnit",
@@ -217,6 +228,7 @@ applyTo: '**/*.json'
 ```
 
 ## Urso-Spesifikke Konvensjoner
+
 - Bruk norske beskrivelser i user-facing JSON
 - Inkluder Urso merkevarefarger i tema-konfigurasjoner
 - Følg norske formater for datoer og tall
@@ -246,18 +258,21 @@ applyTo: '**/*.json'
 ```
 
 ## Sikkerhet og Validering
+
 - Aldri inkluder API keys eller passord
 - Bruk environment variables for sensitive data
 - Valider JSON schema for viktige konfigurasjoner
 - Implementer input sanitization
 
 ## Performance Considerations
+
 - Minimiser JSON file sizes
 - Bruk compression for store JSON filer
 - Cache konfigurasjoner når mulig
 - Unngå dype nesting strukturer
 
 ## Dokumentasjon
+
 - Kommenter komplekse konfigurasjoner
 - Dokumenter alle tilgjengelige options
 - Inkluder eksempler for vanlige use cases

@@ -1,0 +1,36 @@
+{
+    "recommendations": [
+        // .NET Development
+        "ms-dotnettools.csharp",
+        "ms-dotnettools.vscode-dotnet-runtime",
+        "ms-dotnettools.blazorwasm-companion",
+        // Web Development
+        "ms-vscode.vscode-css-peek",
+        "bradlc.vscode-tailwindcss",
+        "formulahendry.auto-rename-tag",
+        "ms-vscode.vscode-json",
+        // Git & Version Control
+        "eamodio.gitlens",
+        "github.vscode-pull-request-github",
+        // Productivity
+        "ms-vscode.powershell",
+        "ms-vscode-remote.remote-containers",
+        "ms-vscode.hexeditor",
+        // Documentation & Markdown
+        "davidanson.vscode-markdownlint",
+        "yzhang.markdown-all-in-one",
+        "bierner.markdown-mermaid",
+        // Code Quality
+        "streetsidesoftware.code-spell-checker",
+        "editorconfig.editorconfig",
+        "ms-vscode.vscode-typescript-next",
+        // Debugging & Testing
+        "ms-dotnettools.vscode-dotnet-pack",
+        "formulahendry.dotnet-test-explorer",
+        // UI/UX Enhancement
+        "pkief.material-icon-theme",
+        "zhuangtongfa.material-theme",
+        "oderwat.indent-rainbow",
+        "christian-kohler.path-intellisense"
+    ]
+}

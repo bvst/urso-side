@@ -1,0 +1,224 @@
+/* Contact Page Specific Styles */
+
+/* Contact Section */
+.contact-section {
+    background: var(--urso-primary);
+    color: var(--urso-white);
+    padding: 4rem 0;
+}
+
+.contact-section h2,
+.contact-section h3 {
+    color: var(--urso-white);
+}
+
+.contact-section p {
+    color: var(--urso-white);
+}
+
+.contact-info p {
+    color: var(--urso-white);
+}
+
+/* Ensure all text elements in contact section are visible */
+.contact-section * {
+    color: var(--urso-white);
+}
+
+.contact-section small {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.contact-section a {
+    color: var(--urso-white) !important;
+}
+
+.contact-section span {
+    color: var(--urso-white);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.contact-info h2 {
+    color: var(--urso-white);
+    margin-bottom: 1rem;
+}
+
+/* Contact Methods */
+.contact-methods {
+    margin-top: 2rem;
+}
+
+.contact-method {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+}
+
+.method-icon {
+    font-size: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--urso-accent);
+    border-radius: var(--border-radius);
+    flex-shrink: 0;
+}
+
+.method-content h3 {
+    color: var(--urso-white);
+    margin-bottom: 0.25rem;
+    font-size: 1.1rem;
+}
+
+.method-content p {
+    margin-bottom: 0.25rem;
+}
+
+.method-content a {
+    color: var(--urso-white);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.method-content a:hover {
+    text-decoration: underline;
+}
+
+.method-content small {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+}
+
+/* Response Badge */
+.response-time {
+    margin-top: 2rem;
+}
+
+.response-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: var(--border-radius);
+    color: var(--urso-white);
+    font-size: 0.9rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+.badge-icon {
+    font-size: 1rem;
+}
+
+/* Contact Form */
+.contact-form-container {
+    background: var(--urso-white);
+    border-radius: var(--border-radius-large);
+    overflow: hidden;
+    box-shadow: var(--shadow-strong);
+}
+
+.contact-form-card {
+    padding: 2rem;
+}
+
+.contact-form {
+    background: var(--urso-white);
+}
+
+/* Submit Message */
+.submit-message {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    text-align: center;
+}
+
+.submit-message.success {
+    background: rgba(76, 175, 80, 0.1);
+    color: #2E7D32;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.submit-message.error {
+    background: rgba(244, 67, 54, 0.1);
+    color: #C62828;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 4rem 0;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.faq-item {
+    background: var(--urso-white);
+    padding: 2rem;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-soft);
+}
+
+.faq-item h3 {
+    color: var(--urso-primary);
+    margin-bottom: 1rem;
+}
+
+.faq-item p {
+    color: var(--urso-text-dark);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-section {
+        padding: 2rem 0;
+    }
+    
+    .contact-form-card {
+        padding: 1.5rem;
+    }
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-method {
+        padding: 1rem;
+    }
+    
+    .method-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.25rem;
+    }
+}

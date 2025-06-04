@@ -1,46 +1,29 @@
-nav {
-    background-image: url('/path-to-your-image.jpg'); /* Replace with the actual path to your image */
-    background-size: cover; /* Ensure the image covers the entire navbar */
-    background-position: center; /* Center the image */
-    padding: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    z-index: 1000;
+/* Navigation Component Specific Overrides */
+/* This file provides component-specific styling that extends the main navigation styles */
+
+/* Ensure nav links maintain proper contrast on all backgrounds */
+.urso-nav .nav-link {
+    color: var(--urso-text-dark) !important;
+    font-weight: 500;
 }
 
-/* Adjust body margin to ensure content starts below the navbar */
-body {
-    margin-top: 5rem; /* Adjust based on the navbar height */
+.urso-nav .nav-link:hover,
+.urso-nav .nav-link.active {
+    color: var(--urso-primary) !important;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem; /* Add spacing between links */
-    margin: 0;
-    padding: 0;
+/* Ensure logo text maintains proper color */
+.urso-nav .logo-text {
+    color: var(--urso-primary) !important;
 }
 
-nav ul li {
-    margin: 0;
-}
-
-nav ul li a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-nav ul li a:hover {
-    background-color: var(--secondary-accent-color);
-    color: var(--primary-color);
+/* Mobile menu adjustments for better contrast */
+@media (max-width: 768px) {
+    .nav-menu {
+        background: var(--urso-white) !important;
+    }
+    
+    .nav-menu.active {
+        background: var(--urso-white) !important;
+    }
 }

@@ -4,6 +4,7 @@ applyTo: '**/*.toml, **/netlify.toml, **/*.yml, **/*.yaml'
 # Deploy og Konfigurasjon Instruksjoner for Urso
 
 ## Netlify Konfigurasjon (netlify.toml)
+
 - Bruk klare og beskrivende kommentarer på norsk
 - Inkluder alle nødvendige headers for sikkerhet og ytelse
 - Konfigurer SPA routing for Blazor WebAssembly
@@ -22,7 +23,8 @@ applyTo: '**/*.toml, **/netlify.toml, **/*.yml, **/*.yaml'
   DOTNET_VERSION = "10.0"
 ```
 
-## GitHub Actions (*.yml, *.yaml)
+## GitHub Actions (*.yml,*.yaml)
+
 - Bruk beskrivende navn for workflows og jobs
 - Inkluder kommentarer for komplekse steps
 - Følg beste praksis for sikkerhet (secrets, permissions)
@@ -47,6 +49,7 @@ jobs:
 ```
 
 ## Environment Variables
+
 - Dokumenter alle nødvendige miljøvariabler
 - Bruk beskrivende navn og kommentarer
 - Skil mellom development og production
@@ -61,6 +64,7 @@ GOOGLE_ANALYTICS_ID=GA-XXXXXXXXX
 ```
 
 ## Sikkerhetshensyn
+
 - Implementer Content Security Policy (CSP)
 - Bruk HTTPS-only i produksjon
 - Sett sikkerhetshardere (X-Frame-Options, etc.)
@@ -76,6 +80,7 @@ GOOGLE_ANALYTICS_ID=GA-XXXXXXXXX
 ```
 
 ## Performance Optimalisering
+
 - Aktiver komprimering (Gzip/Brotli)
 - Sett lange cache-tider for statiske ressurser
 - Bruk CDN for global distribusjon
@@ -89,24 +94,28 @@ GOOGLE_ANALYTICS_ID=GA-XXXXXXXXX
 ```
 
 ## Urso-Spesifikke Konfigurasjoner
+
 - Bruk norske kommentarer i konfigurasjonsfiler
 - Følg Urso sine merkevareretningslinjer
 - Sørg for konsistens på tvers av miljøer
 - Prioriter brukervennlighet og tilgjengelighet
 
 ## Versjonshåndtering
+
 - Tag releases med semantisk versjonering
 - Dokumenter breaking changes
 - Oppretthold backwards compatibility når mulig
 - Test deployments på staging før produksjon
 
 ## Monitoring og Logging
+
 - Konfigurer feilrapportering
 - Sett opp ytelsesovervåkning
 - Aktiver strukturert logging
 - Implementer health checks
 
 ## Backup og Disaster Recovery
+
 - Dokumenter backup-strategier
 - Test gjenopprettingsprosedyrer
 - Oppretthold redundans på kritiske tjenester

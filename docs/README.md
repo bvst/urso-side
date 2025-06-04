@@ -4,15 +4,14 @@ Komplett dokumentasjon for Urso IT-konsulent website prosjektet.
 
 ## 🚀 Deployment
 
+- **[Deployment Overview](deployment/README.md)** - Oversikt over deployment
 - **[Deploy Guide](deployment/DEPLOY-GUIDE.md)** - Hovedguide for deployment til Netlify
-- **[Netlify Deploy](deployment/netlify-deploy.md)** - Detaljerte Netlify instruksjoner
 - **[Deployment Complete](deployment/DEPLOYMENT-COMPLETE.md)** - Komplett prosjektoversikt
-- **[Deployment Success](deployment/DEPLOYMENT-SUCCESS.md)** - Suksessstatus og live URLs
-- **[Netlify README](deployment/NETLIFY-README.md)** - Netlify-spesifikk informasjon
 
 ## 🛠️ Development
 
-- **[PowerShell Guide](development/POWERSHELL-COMPLETE.md)** - Komplett PowerShell build guide
+- **[Development Overview](development/README.md)** - Oversikt over utviklingsverktøy
+- **[Standards Enforcement](development/STANDARDS-ENFORCEMENT.md)** - Validering og kodestandarder
 - **[Environment Variables](environment-variables.md)** - Miljøvariabler og konfigurering
 
 ## 🎨 Design & Branding
@@ -25,13 +24,12 @@ Komplett dokumentasjon for Urso IT-konsulent website prosjektet.
 docs/
 ├── README.md                    # Denne filen
 ├── deployment/                  # Deployment dokumentasjon
+│   ├── README.md               # Deployment oversikt
 │   ├── DEPLOY-GUIDE.md         # Hovedguide
-│   ├── netlify-deploy.md       # Netlify spesifikt
-│   ├── DEPLOYMENT-COMPLETE.md  # Komplett oversikt
-│   ├── DEPLOYMENT-SUCCESS.md   # Suksessstatus
-│   └── NETLIFY-README.md       # Netlify README
+│   └── DEPLOYMENT-COMPLETE.md  # Komplett oversikt
 ├── development/                 # Development dokumentasjon
-│   └── POWERSHELL-COMPLETE.md  # PowerShell guide
+│   ├── README.md               # Development oversikt
+│   └── STANDARDS-ENFORCEMENT.md # Validering og standarder
 ├── brand-guidelines.md         # Design og merkevare
 └── environment-variables.md    # Konfigurasjon
 ```
@@ -39,14 +37,26 @@ docs/
 ## 🔗 Quick Links
 
 ### For Utviklere
-- [PowerShell Build System](development/POWERSHELL-COMPLETE.md)
+
+- [Development Tools](development/README.md)
+- [Standards & Validation](development/STANDARDS-ENFORCEMENT.md)
 - [Environment Variables](environment-variables.md)
 
 ### For Deployment
+
 - [Deploy til Netlify](deployment/DEPLOY-GUIDE.md)
-- [Live Site Status](deployment/DEPLOYMENT-SUCCESS.md)
+- [Deployment Status](deployment/README.md)
 
 ### For Design
+
+- [Brand Guidelines](brand-guidelines.md)
+
+## 💡 Kom i gang
+
+1. **For Development**: Start med [Development Overview](development/README.md)
+2. **For Deployment**: Se [Deployment Guide](deployment/DEPLOY-GUIDE.md)  
+3. **For Design**: Følg [Brand Guidelines](brand-guidelines.md)
+
 - [Urso Brand Guidelines](brand-guidelines.md)
 
 ---

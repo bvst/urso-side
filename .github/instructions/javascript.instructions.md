@@ -4,18 +4,21 @@ applyTo: '**/*.js, **/*.ts'
 # JavaScript/TypeScript Instruksjoner for Urso
 
 ## Generelle Prinsipper
+
 - Skriv moderne, ren JavaScript/TypeScript
 - Bruk ES6+ funksjoner og syntax
 - Prioriter lesbarhet og vedlikeholdbarhet
 - Følg etablerte konvensjoner og beste praksis
 
 ## Navngivningskonvensjoner
+
 - **Variabler og funksjoner**: camelCase (f.eks. `userName`, `calculateTotal`)
 - **Konstanter**: UPPER_SNAKE_CASE (f.eks. `MAX_RETRIES`, `API_ENDPOINTS`)
 - **Klasser**: PascalCase (f.eks. `UserManager`, `ApiClient`)
 - **Filer**: kebab-case (f.eks. `user-service.js`, `api-client.ts`)
 
 ## Kodestruktur
+
 ```javascript
 // Imports øverst
 import { Component } from './component.js';
@@ -40,6 +43,7 @@ export default UrsoComponent;
 ```
 
 ## DOM Manipulasjon
+
 - Bruk moderne DOM API-er (querySelector, addEventListener)
 - Unngå jQuery hvis det ikke er nødvendig
 - Implementer event delegation for dynamisk innhold
@@ -56,6 +60,7 @@ toggleButton?.addEventListener('click', () => {
 ```
 
 ## Event Handling
+
 - Bruk arrow functions for event listeners
 - Implementer proper cleanup av event listeners
 - Bruk passive listeners for scroll/touch events
@@ -83,6 +88,7 @@ window.addEventListener('resize', handleResize);
 ```
 
 ## Asynkron Programmering
+
 - Bruk async/await fremfor Promise.then()
 - Implementer proper feilhåndtering med try/catch
 - Bruk Promise.all() for parallelle operasjoner
@@ -108,6 +114,7 @@ async function fetchUserData(userId) {
 ```
 
 ## Performance Optimalisering
+
 - Minimiser DOM-queries ved å cache selectors
 - Bruk requestAnimationFrame for animasjoner
 - Implementer lazy loading for bilder og komponenter
@@ -132,6 +139,7 @@ document.querySelectorAll('img[data-src]').forEach(img => {
 ```
 
 ## Feilhåndtering
+
 - Implementer global error handling
 - Log feil med tilstrekkelig kontekst
 - Gi brukervennlige feilmeldinger
@@ -154,6 +162,7 @@ window.addEventListener('unhandledrejection', (event) => {
 ```
 
 ## TypeScript Spesifikke Retningslinjer
+
 - Bruk strikt TypeScript konfigurasjon
 - Definer tydelige interfaces og types
 - Unngå `any` type hvis mulig
@@ -173,6 +182,7 @@ type UpdateUserRequest = Partial<Pick<UrsoUser, 'name' | 'email'>>;
 ```
 
 ## Urso-Spesifikke Konvensjoner
+
 - Bruk norske kommentarer for brukervendte funksjoner
 - Implementer tilgjengelighetsfunksjoner (ARIA, keyboard navigation)
 - Følg Urso designsystem for animasjoner og interaksjoner
@@ -192,6 +202,7 @@ function toggleNavigasjon() {
 ```
 
 ## Testing
+
 - Skriv unit tests for viktige funksjoner
 - Bruk Jest eller lignende testing framework
 - Test både positive og negative scenarier
@@ -217,6 +228,7 @@ describe('UrsoUtils', () => {
 ```
 
 ## Dokumentasjon
+
 - Bruk JSDoc for dokumentasjon av funksjoner
 - Inkluder eksempler i dokumentasjonen
 - Dokumenter komplekse algoritmer og business logic

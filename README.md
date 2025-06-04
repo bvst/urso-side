@@ -1,6 +1,6 @@
 # Urso Website
 
-🎉 **LIVE SITE: https://urso.no** 🐻✨
+🎉 **LIVE SITE: <https://urso.no>** 🐻✨
 
 Urso er et IT-konsulentselskap med navn inspirert av det portugisiske ordet for bjørn.
 
@@ -23,7 +23,7 @@ Dette prosjektet består av:
 - **[PowerShell Build](docs/development/POWERSHELL-COMPLETE.md)** - Build system guide
 - **[Brand Guidelines](docs/brand-guidelines.md)** - Urso merkevareretningslinjer
 
-## Prosjektstruktur
+## 📁 Prosjektstruktur
 
 ```text
 ├── src/
@@ -44,6 +44,13 @@ Dette prosjektet består av:
 
 ## 🚀 Quick Start
 
+### Forutsetninger
+
+- .NET 10.0 SDK eller nyere
+- Git (for versjonskontroll)
+- PowerShell 7+ (anbefalt for build scripts)
+- Visual Studio Code (anbefalt) med anbefalte utvidelser
+
 ### Bygg og Kjør Lokalt
 
 ```powershell
@@ -51,69 +58,75 @@ Dette prosjektet består av:
 git clone <repository-url>
 cd urso-side
 
-# Bygg frontend
-.\build.ps1
+# Restore NuGet pakker
+dotnet restore
 
-# Kjør backend
+# Bygg prosjektet
+dotnet build
+
+# Kjør backend (Terminal 1)
 dotnet run --project src/Backend
 
-# Kjør frontend (nytt terminal)
+# Kjør frontend (Terminal 2) 
 dotnet run --project src/Frontend
 ```
 
-**🌐 Frontend:** http://localhost:5167  
-**🔌 Backend:** http://localhost:5000
+**URLs:**
 
-### Deploy til Netlify
+- Frontend: [https://localhost:7061](https://localhost:7061)
+- Backend API: [https://localhost:7160](https://localhost:7160)
+- Swagger UI: [https://localhost:7160/swagger](https://localhost:7160/swagger)
+
+### Build Script (Anbefalt)
 
 ```powershell
-# Push til GitHub for automatisk deploy
-git add .
-git commit -m "Deploy til Netlify"
-git push origin main
+# Bygg alt med PowerShell script
+.\build.ps1
+
+# Med cleanup
+.\build.ps1 -Clean
+
+# Med verbose output
+.\build.ps1 -Verbose
 ```
 
-**📖 Komplett guide:** [docs/deployment/DEPLOY-GUIDE.md](docs/deployment/DEPLOY-GUIDE.md)
+## 💻 VS Code Development Setup (Anbefalt)
 
-## Kom i gang
+Prosjektet inkluderer komplett VS Code-konfigurasjon for optimal utviklingsopplevelse:
 
-### Forutsetninger
+### Quick Start med VS Code
 
-- .NET 10.0 SDK eller nyere
-- Git
+1. **Åpne workspace:**
 
-### Klone prosjektet
+   ```bash
+   code urso.code-workspace
+   ```
 
-```bash
-git clone <repository-url>
-cd urso-side
+2. **Installer anbefalte utvidelser** når du får forespørselen
+
+3. **Kjør applikasjonen:**
+   - Trykk `F5` og velg "Launch Backend + Frontend"
+   - Eller bruk Command Palette (`Ctrl+Shift+P`) → "Tasks: Run Task"
+
+### Tilgjengelige Konfigurasjoner
+
+- **🔧 Build Tasks**: build-all, build-backend, build-frontend, clean, restore, test
+- **🚀 Run Tasks**: run-backend, run-frontend, watch-backend, watch-frontend  
+- **🐛 Debug Configs**: Backend API, Frontend Blazor, eller begge kombinert
+
+### Validering
+
+Kjør valideringsskriptet for å verifisere oppsettet:
+
+```powershell
+.\validate-vscode.ps1
 ```
 
-### Kjør Backend
+📖 **Komplett VS Code guide:** [.vscode/README.md](.vscode/README.md)
 
-```bash
-dotnet run --project src/Backend
-```
+## 🌐 Deployment til Netlify
 
-Backend kjører på `http://localhost:5000` (HTTP) og `https://localhost:5001` (HTTPS).
-
-### Kjør Frontend
-
-```bash
-dotnet run --project src/Frontend
-```
-
-Frontend kjører på `http://localhost:5167`.
-
-### Kjør tester
-
-```bash
-dotnet test
-```
-
-## Deploy til Netlify
-
-Prosjektet er konfigurert for automatisk deploy til Netlify:
+Prosjektet er konfigurert for automatisk deploy til Netlify.
 
 ### Automatisk Deploy via Git
 
@@ -125,7 +138,7 @@ Prosjektet er konfigurert for automatisk deploy til Netlify:
 
 2. **Build innstillinger:** (automatisk fra `netlify.toml`)
 
-   ```text
+   ```toml
    Build command: dotnet publish src/Frontend -c Release -o dist --nologo
    Publish directory: dist/wwwroot
    ```
@@ -141,9 +154,9 @@ Prosjektet er konfigurert for automatisk deploy til Netlify:
 # Dra og slipp dist\wwwroot mappen til Netlify
 ```
 
-Se `docs/netlify-deploy.md` for detaljerte instruksjoner.
+📖 **Detaljerte instruksjoner:** [docs/deployment/DEPLOY-GUIDE.md](docs/deployment/DEPLOY-GUIDE.md)
 
-## Utviklingsinformasjon
+## 🛠️ Utviklingsinformasjon
 
 ### Teknologi Stack
 
@@ -176,14 +189,23 @@ Se `docs/netlify-deploy.md` for detaljerte instruksjoner.
 - **Tjenester** (`/tjenester`) - Detaljert oversikt over IT-tjenester
 - **Kontakt** (`/contact`) - Kontaktinformasjon og skjema
 
-### Bygging for produksjon
+## 🔨 Build Commands
 
-```bash
-dotnet publish src/Frontend -c Release -o publish/frontend
-dotnet publish src/Backend -c Release -o publish/backend
+```powershell
+# Restore dependencies
+dotnet restore UrsoSide.sln
+
+# Build solution  
+dotnet build UrsoSide.sln
+
+# Run tests
+dotnet test
+
+# Publish for production
+dotnet publish src/Frontend -c Release -o dist --nologo
 ```
 
-## Bidrag
+## 🤝 Bidrag
 
 Dette prosjektet følger Urso sine verdier:
 
@@ -192,71 +214,11 @@ Dette prosjektet følger Urso sine verdier:
 - **Innovasjon**: Kreative løsninger og nye tilnærminger
 - **Menneskelighet**: Fokus på brukeropplevelse og tilgjengelighet
 
-## Getting Started
+## 📝 Notater
 
-### Prerequisites
+- **Testing Framework**: NUnit med NSubstitute for mocking
+- **Språk**: All UI-tekst skal være på norsk
+- **Arkitektur**: Ren separasjon mellom API backend og frontend client
 
-- .NET SDK 10.0 or later installed
-
-### Running the Solution
-
-1. Navigate to the project root.
-2. Run `dotnet restore` to restore NuGet packages.
-3. Run `dotnet build` to build the solution.
-
-#### Running Backend Only
-
-```bash
-dotnet run --project src/Backend
-```
-
-#### Running Frontend Only
-
-```bash
-dotnet run --project src/Frontend
-```
-
-#### Running Tests
-
-```bash
-dotnet test
-```
-
-## Development
-
-- **Testing Framework**: NUnit with NSubstitute for mocking
-- **Language**: All UI text should be in Norwegian (Norsk)
-- **Architecture**: Clean separation between API backend and frontend client
-
-## Notes
-
-Ensure both backend and frontend are running for the application to function correctly. The backend serves the API endpoints while the frontend provides the user interface.
-
-## Deploy til Netlify
-
-Prosjektet er konfigurert for automatisk deploy til Netlify:
-
-### Automatisk Deploy via Git
-1. **Koble GitHub repository til Netlify:**
-   - Gå til [netlify.com](https://netlify.com) og logg inn
-   - Klikk "New site from Git"
-   - Velg GitHub og autorisér tilgang
-   - Velg `urso-side` repository
-
-2. **Build innstillinger:** (automatisk fra `netlify.toml`)
-   ```
-   Build command: dotnet publish src/Frontend -c Release -o dist --nologo
-   Publish directory: dist/wwwroot
-   ```
-
-3. **Deploy:** Netlify bygger automatisk ved hver push til main branch
-
-### Manuell Deploy
-```powershell
-# Bygg lokalt
-.\build.ps1
-
-# Dra og slipp dist\wwwroot mappen til Netlify
-```
-
-Se `docs/netlify-deploy.md` for detaljerte instruksjoner.
+Sørg for at både backend og frontend kjører for at applikasjonen skal fungere korrekt.
+Backend serverer API endpoints mens frontend tilbyr brukergrensesnittet.
