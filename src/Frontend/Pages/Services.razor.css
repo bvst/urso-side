@@ -32,7 +32,8 @@
 }
 
 .service-tagline {
-    color: var(--urso-text-light);
+    color: var(--urso-text-medium);
+    /* Förbättrad kontrast för service tagline */
     font-size: 1.1rem;
     margin: 0;
 }
@@ -60,7 +61,8 @@
 }
 
 .offering-card p {
-    color: var(--urso-text-light);
+    color: var(--urso-text-medium);
+    /* Förbättrad kontrast för offering beskrivningar */
     margin-bottom: 1rem;
     font-size: 0.9rem;
 }
@@ -73,7 +75,8 @@
 
 .offering-card li {
     padding: 0.25rem 0;
-    color: var(--urso-text-light);
+    color: var(--urso-text-medium);
+    /* Förbättrad kontrast för offering listor */
     position: relative;
     padding-left: 1.2rem;
     font-size: 0.9rem;
@@ -145,7 +148,8 @@
 }
 
 .timeline-content p {
-    color: var(--urso-text-light);
+    color: var(--urso-text-medium);
+    /* Förbättrad kontrast för timeline beskrivningar */
     margin: 0;
 }
 
@@ -182,11 +186,11 @@
         text-align: center;
         gap: 1rem;
     }
-    
+
     .timeline-item:not(:last-child) .timeline-marker::after {
         display: none;
     }
-    
+
     .cta-actions {
         flex-direction: column;
         align-items: center;
@@ -194,11 +198,12 @@
 }
 
 @media (max-width: 480px) {
+
     .services-detailed,
     .process-section {
         padding: 2rem 0;
     }
-    
+
     .service-detail {
         padding: 2rem;
     }

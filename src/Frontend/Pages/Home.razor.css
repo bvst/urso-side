@@ -29,7 +29,8 @@
 
 .hero-subtitle {
     font-size: 1.25rem;
-    color: var(--urso-text-light);
+    color: var(--urso-text-medium);
+    /* Förbättrad kontrast för hero subtitle */
     margin-bottom: 2rem;
     line-height: 1.6;
 }
@@ -65,7 +66,8 @@
 }
 
 .hero-card p {
-    color: var(--urso-text-light);
+    color: var(--urso-text-medium);
+    /* Förbättrad kontrast för hero card text */
     margin: 0;
 }
 
@@ -107,7 +109,8 @@
 
 .service-features li {
     padding: 0.5rem 0;
-    color: var(--urso-text-light);
+    color: var(--urso-text-medium);
+    /* Förbättrad kontrast för service features */
     position: relative;
     padding-left: 1.5rem;
 }
@@ -146,11 +149,11 @@
         gap: 2rem;
         text-align: center;
     }
-    
+
     .hero-title {
         font-size: 2rem;
     }
-    
+
     .hero-actions {
         justify-content: center;
     }
@@ -160,20 +163,20 @@
     .hero {
         padding: 2rem 0;
     }
-    
+
     .hero-title {
         font-size: 1.75rem;
     }
-    
+
     .hero-actions {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .services {
         padding: 2rem 0;
     }
-    
+
     .values {
         padding: 2rem 0;
     }

@@ -38,7 +38,8 @@
 }
 
 .highlight-item span {
-    color: var(--urso-text-light);
+    color: var(--urso-text-medium);
+    /* Förbättrad kontrast för highlight beskrivningar */
     font-size: 0.9rem;
 }
 
@@ -75,7 +76,8 @@
 
 .card-content p {
     font-style: italic;
-    color: var(--urso-text-light);
+    color: var(--urso-text-medium);
+    /* Förbättrad kontrast för card innehåll */
     margin: 0;
 }
 
@@ -117,7 +119,8 @@
 }
 
 .step-content p {
-    color: var(--urso-text-light);
+    color: var(--urso-text-medium);
+    /* Förbättrad kontrast för step beskrivningar */
     margin: 0;
 }
 
@@ -199,15 +202,15 @@
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .story-highlights {
         justify-content: center;
     }
-    
+
     .approach-steps {
         grid-template-columns: 1fr;
     }
-    
+
     .cta-actions {
         flex-direction: column;
         align-items: center;
@@ -215,6 +218,7 @@
 }
 
 @media (max-width: 480px) {
+
     .about-story,
     .approach,
     .expertise {

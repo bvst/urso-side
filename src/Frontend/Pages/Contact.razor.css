@@ -7,20 +7,27 @@
     padding: 4rem 0;
 }
 
+/* Säkerställ hög kontrast för all text i contact section */
+.contact-section,
+.contact-section h1,
 .contact-section h2,
-.contact-section h3 {
-    color: var(--urso-white);
+.contact-section h3,
+.contact-section h4,
+.contact-section h5,
+.contact-section h6 {
+    color: var(--urso-white) !important;
 }
 
-.contact-section p {
-    color: var(--urso-white);
+.contact-section p,
+.contact-section .lead {
+    color: var(--urso-white) !important;
 }
 
 .contact-info p {
-    color: var(--urso-white);
+    color: var(--urso-white) !important;
 }
 
-/* Ensure all text elements in contact section are visible */
+/* Säkerställ att alla textelement är synliga */
 .contact-section * {
     color: var(--urso-white);
 }
@@ -186,7 +193,8 @@
 }
 
 .faq-item p {
-    color: var(--urso-text-dark);
+    color: var(--urso-text-medium);
+    /* Förbättrad kontrast för FAQ text */
     line-height: 1.6;
     margin: 0;
 }
@@ -197,15 +205,15 @@
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .contact-section {
         padding: 2rem 0;
     }
-    
+
     .contact-form-card {
         padding: 1.5rem;
     }
-    
+
     .faq-grid {
         grid-template-columns: 1fr;
     }
@@ -215,7 +223,7 @@
     .contact-method {
         padding: 1rem;
     }
-    
+
     .method-icon {
         width: 2.5rem;
         height: 2.5rem;
