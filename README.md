@@ -1,5 +1,7 @@
 # Urso Website
 
+🎉 **LIVE SITE: https://urso.no** 🐻✨
+
 Urso er et IT-konsulentselskap med navn inspirert av det portugisiske ordet for bjørn.
 
 - **Visjon:** Være en pålitelig og innovativ IT-konsulentpartner
