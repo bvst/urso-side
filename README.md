@@ -65,6 +65,38 @@ Frontend kjører på `http://localhost:5167`.
 dotnet test
 ```
 
+## Deploy til Netlify
+
+Prosjektet er konfigurert for automatisk deploy til Netlify:
+
+### Automatisk Deploy via Git
+
+1. **Koble GitHub repository til Netlify:**
+   - Gå til [netlify.com](https://netlify.com) og logg inn
+   - Klikk "New site from Git"
+   - Velg GitHub og autorisér tilgang
+   - Velg `urso-side` repository
+
+2. **Build innstillinger:** (automatisk fra `netlify.toml`)
+
+   ```text
+   Build command: dotnet publish src/Frontend -c Release -o dist --nologo
+   Publish directory: dist/wwwroot
+   ```
+
+3. **Deploy:** Netlify bygger automatisk ved hver push til main branch
+
+### Manuell Deploy
+
+```powershell
+# Bygg lokalt
+.\build.ps1
+
+# Dra og slipp dist\wwwroot mappen til Netlify
+```
+
+Se `docs/netlify-deploy.md` for detaljerte instruksjoner.
+
 ## Utviklingsinformasjon
 
 ### Teknologi Stack
@@ -153,3 +185,32 @@ dotnet test
 ## Notes
 
 Ensure both backend and frontend are running for the application to function correctly. The backend serves the API endpoints while the frontend provides the user interface.
+
+## Deploy til Netlify
+
+Prosjektet er konfigurert for automatisk deploy til Netlify:
+
+### Automatisk Deploy via Git
+1. **Koble GitHub repository til Netlify:**
+   - Gå til [netlify.com](https://netlify.com) og logg inn
+   - Klikk "New site from Git"
+   - Velg GitHub og autorisér tilgang
+   - Velg `urso-side` repository
+
+2. **Build innstillinger:** (automatisk fra `netlify.toml`)
+   ```
+   Build command: dotnet publish src/Frontend -c Release -o dist --nologo
+   Publish directory: dist/wwwroot
+   ```
+
+3. **Deploy:** Netlify bygger automatisk ved hver push til main branch
+
+### Manuell Deploy
+```powershell
+# Bygg lokalt
+.\build.ps1
+
+# Dra og slipp dist\wwwroot mappen til Netlify
+```
+
+Se `docs/netlify-deploy.md` for detaljerte instruksjoner.
