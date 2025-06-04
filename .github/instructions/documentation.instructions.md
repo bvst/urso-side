@@ -15,12 +15,19 @@ applyTo: '**/*.md'
 - Organiser innhold med passende overskriftsnivåer (H2, H3, etc.)
 - Bruk lister for å gjøre informasjon lettere å skanne
 
+### Markdown Linting Regler
+- **MD022**: Overskrifter skal være omgitt av blanke linjer (over og under)
+- **MD031**: Kodeblokker skal være omgitt av blanke linjer (over og under)
+- **MD040**: Kodeblokker skal alltid ha språkspesifikasjon (```powershell, ```json, etc.)
+- **MD032**: Lister skal være omgitt av blanke linjer (over og under)
+
 ## README Filer
 - Inkluder alltid en kort beskrivelse av prosjektet
 - List opp hovedfunksjoner med emojis for visuell appell
 - Gi tydelige instruksjoner for "Kom i gang"
 - Inkluder teknisk stack og arkitekturinformasjon
 - Dokumenter bygge- og deploy-prosesser
+- Følg markdown linting-regler for konsistent formatering
 
 ```markdown
 # Prosjektnavn
@@ -35,9 +42,11 @@ Kort beskrivelse av prosjektet.
 ## Kom i gang
 
 ### Forutsetninger
+
 - Liste over nødvendige verktøy
 
 ### Installasjon
+
 ```bash
 npm install
 # eller
@@ -45,19 +54,28 @@ dotnet restore
 ```
 
 ## Dokumentasjon linker
+
+- [Link til dokumentasjon](docs/)
 ```
 
 ## Kodeeksempler
-- Inkluder språkspesifikk syntaks-highlighting
+- Inkluder språkspesifikk syntaks-highlighting for alle kodeblokker
 - Bruk realistiske eksempler fra prosjektet
 - Kommenter kompleks kode inline
 - Vis både "før" og "etter" når det er relevant
+- Omgi kodeblokker med blanke linjer over og under
 
 ```markdown
+Eksempel på korrekt formatering:
+
+Text før kodeblokk.
+
 ```powershell
 # Bygg prosjektet
 .\build.ps1 -Clean -Verbose
 ```
+
+Text etter kodeblokk.
 ```
 
 ## Deploy Guider
@@ -66,6 +84,45 @@ dotnet restore
 - Inkluder troubleshooting-seksjoner
 - List opp nødvendige environment variables
 - Dokumenter post-deploy verifikasjon
+
+## Markdown Formatering Best Practices
+
+### Overskrifter (MD022)
+Alltid ha blank linje før og etter overskrifter:
+
+```markdown
+Text før overskrift.
+
+## Min Overskrift
+
+Text etter overskrift.
+```
+
+### Kodeblokker (MD031, MD040)
+Omgi kodeblokker med blanke linjer og spesifiser språk:
+
+```markdown
+Text før kodeblokk.
+
+```powershell
+Write-Host "Hello World"
+```
+
+Text etter kodeblokk.
+```
+
+### Lister (MD032)
+Omgi lister med blanke linjer:
+
+```markdown
+Text før liste.
+
+- Element 1
+- Element 2
+- Element 3
+
+Text etter liste.
+```
 
 ## API Dokumentasjon
 - Bruk OpenAPI/Swagger som hovedkilde
@@ -84,6 +141,20 @@ dotnet restore
 - Verifiser at alle lenker og referanser fungerer
 - Test instruksjonene på ren miljø regelmessig
 - Arkiver utdatert dokumentasjon i stedet for å slette
+- Kjør markdown linting før commit for å sikre kvalitet
+
+## Linting og Kvalitetssikring
+
+### Obligatoriske Markdown Linting Regler
+- **MD022**: Blank linje over og under alle overskrifter
+- **MD031**: Blank linje over og under alle kodeblokker
+- **MD040**: Språkspesifikasjon på alle kodeblokker (```powershell, ```json, ```bash, etc.)
+- **MD032**: Blank linje over og under alle lister
+
+### Verktøy
+- Bruk VS Code med markdownlint extension
+- Kjør `markdownlint **/*.md` før commit
+- Fiks alle linting-feil før pull request
 
 ## Tilgjengelighet
 - Bruk beskrivende lenketekst
