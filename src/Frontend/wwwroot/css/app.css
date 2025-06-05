@@ -8,9 +8,9 @@
     --urso-light-gray: #E8ECF0;
     --urso-text-dark: #2C3E50;
     --urso-text-light: #374151;
-    /* Dramatisk förbättring för WCAG-kompatibilitet */
+    /* Forbedret kontrast for WCAG-kompatibilitet */
     --urso-text-medium: #1F2937;
-    /* Mycket mörkare för optimal kontrast */
+    /* Mye mørkere for optimal kontrast */
 
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -95,10 +95,10 @@ h6 {
 p {
     margin-bottom: 1rem;
     color: var(--urso-text-medium);
-    /* Bättre kontrast för paragraftext */
+    /* Bedre kontrast for avsnittekst */
 }
 
-/* Säkerställ vit text på mörka bakgrunder */
+/* Sikre hvit tekst på mørke bakgrunner */
 [class*="primary"],
 .contact-section,
 .hero-section.dark,
@@ -113,7 +113,7 @@ p {
     color: var(--urso-white) !important;
 }
 
-/* Förbättrad kontrasthantering för alla mörka bakgrunder */
+/* Forbedret kontrasthåndtering for alle mørke bakgrunner */
 .contact-section p,
 .page-hero p,
 .cta-section p,
@@ -122,7 +122,7 @@ p {
     color: var(--urso-white) !important;
 }
 
-/* Säkra att lead-paragrafer alltid har korrekt kontrast */
+/* Sikre at lead-paragrafer alltid har korrekt kontrast */
 .lead {
     color: inherit;
 }
@@ -131,6 +131,19 @@ p {
 .contact-section .lead,
 .cta-section .lead {
     color: var(--urso-white) !important;
+}
+
+/* Forbedre kontrast for tekstklasser på mørke bakgrunner */
+.contact-section .text-large,
+.page-hero .text-large,
+.cta-section .text-large {
+    color: var(--urso-white) !important;
+}
+
+.contact-section .text-muted,
+.page-hero .text-muted,
+.cta-section .text-muted {
+    color: rgba(255, 255, 255, 0.8) !important;
 }
 
 .text-large {
@@ -341,6 +354,49 @@ p {
     font-size: 1.1rem;
 }
 
+/* Form Elements */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--urso-text-dark);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--urso-light-gray);
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--urso-text-dark);
+    background-color: var(--urso-white);
+    transition: var(--transition);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--urso-primary);
+    box-shadow: 0 0 0 3px rgba(31, 59, 77, 0.1);
+}
+
+.form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-actions {
+    margin-top: 2rem;
+}
+
 /* Section Styling */
 .section {
     padding: 5rem 0;
@@ -359,7 +415,7 @@ p {
 .section-header p {
     font-size: 1.125rem;
     color: var(--urso-text-medium);
-    /* Förbättrad kontrast för section beskrivningar */
+    /* Forbedret kontrast for seksjonssbeskrivelser */
     max-width: 600px;
     margin: 0 auto;
 }
@@ -797,4 +853,41 @@ select:focus-visible {
     .section-header h2 {
         font-size: 2rem;
     }
+}
+
+/* Comprehensive kontrastregler for mørke bakgrunner */
+.page-hero,
+.contact-section,
+.cta-section,
+section[style*="background: var(--urso-primary)"],
+section[style*="background-color: var(--urso-primary)"],
+div[style*="background: var(--urso-primary)"],
+div[style*="background-color: var(--urso-primary)"] {
+    color: var(--urso-white);
+}
+
+/* Alle teksttyper på mørke bakgrunner skal være hvite */
+.page-hero *,
+.contact-section *,
+.cta-section *,
+section[style*="background: var(--urso-primary)"] *,
+section[style*="background-color: var(--urso-primary)"] *,
+div[style*="background: var(--urso-primary)"] *,
+div[style*="background-color: var(--urso-primary)"] * {
+    color: var(--urso-white);
+}
+
+/* Spesielle unntak for knapper og ikoner */
+.page-hero .btn,
+.contact-section .btn,
+.cta-section .btn {
+    color: var(--urso-primary);
+    background: var(--urso-white);
+}
+
+.page-hero .btn:hover,
+.contact-section .btn:hover,
+.cta-section .btn:hover {
+    color: var(--urso-white);
+    background: var(--urso-accent);
 }

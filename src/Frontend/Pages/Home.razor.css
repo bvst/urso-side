@@ -30,7 +30,7 @@
 .hero-subtitle {
     font-size: 1.25rem;
     color: var(--urso-text-medium);
-    /* Förbättrad kontrast för hero subtitle */
+    /* Forbedret kontrast for hero subtitle */
     margin-bottom: 2rem;
     line-height: 1.6;
 }

@@ -9,15 +9,3 @@
 .urso-main {
     flex: 1;
 }
-
-/* Urso Layout - Modern Layout with Header/Main/Footer Structure */
-.page {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.urso-main {
-    flex: 1;
-}

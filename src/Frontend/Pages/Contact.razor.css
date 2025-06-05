@@ -27,8 +27,8 @@
     color: var(--urso-white) !important;
 }
 
-/* Säkerställ att alla textelement är synliga */
-.contact-section * {
+/* Säkerställ att alla textelement är synliga, men ikke skjema-elementer */
+.contact-section *:not(.contact-form-card):not(.contact-form-card *) {
     color: var(--urso-white);
 }
 
@@ -141,6 +141,67 @@
 
 .contact-form-card {
     padding: 2rem;
+}
+
+.contact-form-card h3 {
+    color: var(--urso-primary);
+    margin-bottom: 1.5rem;
+}
+
+.contact-form-card label {
+    color: var(--urso-text-dark);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.contact-form-card .form-input,
+.contact-form-card .form-select,
+.contact-form-card .form-textarea {
+    color: var(--urso-text-dark);
+}
+
+.contact-form-card .form-input::placeholder,
+.contact-form-card .form-textarea::placeholder {
+    color: var(--urso-text-light);
+    opacity: 0.7;
+}
+
+.contact-form-card option {
+    color: var(--urso-text-dark);
+    background: var(--urso-white);
+}
+
+.contact-form-card .btn {
+    color: var(--urso-white) !important;
+    background: var(--urso-primary) !important;
+}
+
+.contact-form-card .btn:hover {
+    background: var(--urso-accent) !important;
+}
+
+.contact-form-card .btn span {
+    color: var(--urso-white) !important;
+}
+
+.contact-form-card .form-actions {
+    margin-top: 2rem;
+}
+
+/* Overstyr alle hvite tekstfarger for skjema-elementer */
+.contact-form-card,
+.contact-form-card *:not(.btn):not(.btn *) {
+    color: var(--urso-text-dark) !important;
+}
+
+.contact-form-card h3 {
+    color: var(--urso-primary) !important;
+}
+
+.contact-form-card .btn,
+.contact-form-card .btn * {
+    color: var(--urso-white) !important;
 }
 
 .contact-form {
