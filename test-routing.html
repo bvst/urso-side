@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Local 404 Test</title>
+    <script>
+        // Simulate SPA routing for testing
+        function navigateToNotFound() {
+            window.location.hash = '#/404';
+        }
+
+        function navigateToContact() {
+            window.location.hash = '#/contact';
+        }
+
+        function navigateToNonExistent() {
+            window.location.hash = '#/nonexistent-page';
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Local Routing Test</h1>
+    <p>Test the routing behavior:</p>
+    <button onclick="navigateToNotFound()">Go to 404 Page</button>
+    <button onclick="navigateToContact()">Go to Contact Page</button>
+    <button onclick="navigateToNonExistent()">Go to Non-existent Page</button>
+
+    <p>Current URL: <span id="currentUrl"></span></p>
+
+    <script>
+        // Update current URL display
+        function updateUrl() {
+            document.getElementById('currentUrl').textContent = window.location.href;
+        }
+
+        window.addEventListener('hashchange', updateUrl);
+        updateUrl();
+    </script>
+</body>
+
+</html>
