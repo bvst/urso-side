@@ -105,6 +105,82 @@ Pages/
 - Følg C# naming conventions (PascalCase for public medlemmer, camelCase for private).
 - Kommentér kompleks logikk på norsk eller engelsk.
 
+## JavaScript-Integrasjon
+
+### Timing og DOM-opplasting
+- **Ikke bruk standard DOMContentLoaded** for å manipulere elementer rendret av Blazor, da dette kjører for tidlig.
+- **Bruk livssyklusmetoder** for å sikre at JavaScript kjøres etter at Blazor har rendret komponentene:
+  - `OnAfterRenderAsync(bool firstRender)` er det ideelle tidspunktet for å kalle JavaScript.
+  - Bruk `firstRender`-parameteren for å unngå unødvendige kall ved re-rendring.
+
+### Struktur for JavaScript-interaksjon
+1. **Global JavaScript-funksjon**: Pakk inn komponentspesifikk logikk i navngitte globale funksjoner:
+   ```javascript
+   // urso.js
+   window.funksjonsNavn = function() {
+       // Implementering som finner og manipulerer DOM-elementer
+   };
+   ```
+
+2. **Blazor-komponent invokering**:
+   ```csharp
+   [Inject] protected IJSRuntime JSRuntime { get; set; } = default!;
+   
+   protected override async Task OnAfterRenderAsync(bool firstRender)
+   {
+       if (firstRender)
+       {
+           await JSRuntime.InvokeVoidAsync("funksjonsNavn");
+       }
+   }
+   ```
+
+### Eksempel på JS/Blazor-interaksjon
+For komponenter med interaktivitet som mobilnavigasjon, modaler eller dynamiske skjemaer:
+
+```javascript
+// urso.js
+window.initializeUrsoNavigation = function() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    }
+};
+```
+
+```csharp
+// MainLayoutBase.cs
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
+
+namespace Frontend.Layout;
+
+public class MainLayoutBase : LayoutComponentBase
+{
+    [Inject] protected IJSRuntime JSRuntime { get; set; } = default!;
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("initializeUrsoNavigation");
+        }
+    }
+}
+```
+
+### Best practices
+- Initialiser JavaScript kun når nødvendig, vanligvis én gang når komponenten først rendres.
+- Unngå å integrere inline JavaScript i .razor-filer.
+- Bruk data-attributter for å markere elementer som skal manipuleres med JavaScript.
+- Implementer feilhåndtering for JavaScript-kall (`try-catch` i C#).
+- Vurder tilbakekallsfunksjoner fra JavaScript til .NET for kompleks interaksjon.
+
 ## Eksempel på prompt for ny komponent
 
 // "Lag en Blazor-komponent for et profilkort med code-behind separation.

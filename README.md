@@ -21,6 +21,7 @@ Dette prosjektet består av:
 - **[Komplett Dokumentasjon](docs/README.md)** - Hovedindeks for all dokumentasjon
 - **[Deploy Guide](docs/deployment/DEPLOY-GUIDE.md)** - Slik deployer du til Netlify
 - **[PowerShell Build](docs/development/POWERSHELL-COMPLETE.md)** - Build system guide
+- **[Ikon Implementasjon](docs/development/ICON-IMPLEMENTATION.md)** - Urso ikoner dokumentasjon
 - **[Brand Guidelines](docs/brand-guidelines.md)** - Urso merkevareretningslinjer
 
 ## 📁 Prosjektstruktur

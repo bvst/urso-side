@@ -48,6 +48,93 @@ body {
     flex-direction: column;
 }
 
+/* Loading Animation */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--urso-background);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.urso-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.bear-icon {
+    width: 120px;
+    height: 120px;
+    background-color: var(--urso-accent);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: var(--shadow-medium);
+    animation: pulse 1.5s infinite alternate;
+    background-image: url('../icons/urso-favicon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80px 80px;
+}
+
+.bear-icon:before,
+.bear-icon:after {
+    content: "";
+    position: absolute;
+    background-color: var(--urso-accent);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    top: -15px;
+}
+
+.bear-icon:before {
+    left: 15px;
+}
+
+.bear-icon:after {
+    right: 15px;
+}
+
+.loading-text {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--urso-primary);
+    animation: fadeInOut 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes fadeInOut {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -801,6 +888,70 @@ select:focus-visible {
     }
 }
 
+/* Blazor Error UI */
+#blazor-error-ui {
+    background-color: var(--urso-primary);
+    color: var(--urso-white);
+    bottom: 0;
+    box-shadow: var(--shadow-strong);
+    display: none;
+    left: 0;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+}
+
+#blazor-error-ui .error-content {
+    padding: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#blazor-error-ui h3 {
+    color: var(--urso-white);
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+}
+
+#blazor-error-ui p {
+    color: var(--urso-white);
+    margin-bottom: 1rem;
+}
+
+#blazor-error-ui .reload {
+    background-color: var(--urso-accent);
+    border: none;
+    border-radius: var(--border-radius);
+    color: var(--urso-white);
+    cursor: pointer;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+#blazor-error-ui .reload:hover {
+    background-color: #8a6349;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: 0.75rem;
+    color: var(--urso-white);
+    font-size: 1.5rem;
+    opacity: 0.7;
+    transition: var(--transition);
+}
+
+#blazor-error-ui .dismiss:hover {
+    opacity: 1;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
@@ -809,7 +960,8 @@ select:focus-visible {
 
     .nav-menu {
         position: fixed;
-        top: 100%;
+        top: 80px;
+        /* Position below the navbar */
         left: 0;
         width: 100%;
         background: var(--urso-white);
@@ -819,7 +971,9 @@ select:focus-visible {
         transform: translateY(-100%);
         opacity: 0;
         visibility: hidden;
-        transition: var(--transition);
+        transition: all 0.3s ease;
+        z-index: 1000;
+        /* Ensure it appears above other content */
     }
 
     .nav-menu.active {

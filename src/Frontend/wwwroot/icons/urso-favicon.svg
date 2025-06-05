@@ -1,0 +1,8 @@
+<!-- This is a simple SVG-based favicon source for Urso -->
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- Background -->
+  <rect width="32" height="32" fill="#1F3B4D" rx="4" ry="4"/>
+  
+  <!-- Letter U for Urso -->
+  <path d="M8 8v10c0 3 2 6 8 6s8-3 8-6V8h-4v10c0 1-1 2-4 2s-4-1-4-2V8z" fill="#FFFFFF"/>
+</svg>

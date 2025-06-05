@@ -12,6 +12,7 @@ Komplett dokumentasjon for Urso IT-konsulent website prosjektet.
 
 - **[Development Overview](development/README.md)** - Oversikt over utviklingsverktøy
 - **[Standards Enforcement](development/STANDARDS-ENFORCEMENT.md)** - Validering og kodestandarder
+- **[Ikon Implementasjon](development/ICON-IMPLEMENTATION.md)** - Dokumentasjon av Urso ikoner
 - **[Environment Variables](environment-variables.md)** - Miljøvariabler og konfigurering
 
 ## 🎨 Design & Branding

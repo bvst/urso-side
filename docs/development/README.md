@@ -5,6 +5,7 @@ Denne mappen inneholder dokumentasjon for utvikling og vedlikehold av Urso-prosj
 ## 📚 Dokumenter
 
 - **[STANDARDS-ENFORCEMENT.md](STANDARDS-ENFORCEMENT.md)** - Komplett guide til Urso standarder og valideringssystem
+- **[ICON-IMPLEMENTATION.md](ICON-IMPLEMENTATION.md)** - Dokumentasjon av Urso ikonsystem og implementasjon
 
 ## 🔧 Utviklingsverktøy
 
