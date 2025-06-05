@@ -29,6 +29,18 @@
             "url": "https://localhost:7061"
         },
         {
+            "name": "Frontend Hot Reload",
+            "type": "blazorwasm",
+            "request": "launch",
+            "preLaunchTask": "watch-frontend",
+            "cwd": "${workspaceFolder}/src/Frontend",
+            "url": "https://localhost:7061",
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "DOTNET_WATCH_RESTART_ON_RUDE_EDIT": "true"
+            }
+        },
+        {
             "name": "Launch Full Application",
             "type": "coreclr",
             "request": "launch",
@@ -53,6 +65,14 @@
             "configurations": [
                 "Launch Backend API",
                 "Launch Frontend Blazor"
+            ],
+            "stopAll": true
+        },
+        {
+            "name": "Development with Hot Reload",
+            "configurations": [
+                "Launch Backend API",
+                "Frontend Hot Reload"
             ],
             "stopAll": true
         }

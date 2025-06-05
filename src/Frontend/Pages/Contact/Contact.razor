@@ -1,4 +1,5 @@
 @page "/contact"
+@inherits ContactBase
 
 <section class="page-hero">
     <div class="container">
@@ -24,16 +25,15 @@
                         <div class="method-icon">📧</div>
                         <div class="method-content">
                             <h3>E-post</h3>
-                            <p><a href="mailto:kontakt@urso.no">kontakt@urso.no</a></p>
+                            <p><a href="mailto:kontakt@urso.no" aria-label="Send e-post til kontakt@urso.no">kontakt@urso.no</a></p>
                             <small>Vi svarer vanligvis innen 24 timer</small>
                         </div>
                     </div>
-                    
-                    <div class="contact-method">
+                      <div class="contact-method">
                         <div class="method-icon">📞</div>
                         <div class="method-content">
                             <h3>Telefon</h3>
-                            @* <p><a href="tel:+4741234567"></a></p> *@
+                            <p><a href="tel:+4790123456" aria-label="Ring oss på +47 901 23 456">+47 901 23 456</a></p>
                             <small>Mandag-fredag 09:00-17:00</small>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                         <div class="method-content">
                             <h3>Videomøte</h3>
                             <p>Book et 30 minutters videomøte</p>
-                            <small>Gratis og uforpliktende</small>
+                            <small>Gratis og uforpliktende - perfekt for en første samtale</small>
                         </div>
                     </div>
                 </div>
@@ -58,38 +58,50 @@
             
             <div class="contact-form-container">
                 <div class="contact-form-card">
-                    <h3>Send oss en melding</h3>
-                    <form class="contact-form" @onsubmit="HandleSubmit" @onsubmit:preventDefault="true">
+                    <h3>Send oss en melding</h3>                    <form class="contact-form" @onsubmit="HandleSubmit" @onsubmit:preventDefault="true">
                         <div class="form-group">
                             <label for="name">Navn *</label>
-                            <input type="text" id="name" @bind="contactForm.Name" required class="form-input" />
+                            <input type="text" id="name" @bind="contactForm.Name" required class="@GetFieldClass("Name")" 
+                                   placeholder="Ditt fulle navn" />
+                            @if (GetFieldError("Name") != null)
+                            {
+                                <div class="field-error">@GetFieldError("Name")</div>
+                            }
                         </div>
                         
                         <div class="form-group">
                             <label for="email">E-post *</label>
-                            <input type="email" id="email" @bind="contactForm.Email" required class="form-input" />
+                            <input type="email" id="email" @bind="contactForm.Email" required class="@GetFieldClass("Email")" 
+                                   placeholder="din.epost@eksempel.no" />
+                            @if (GetFieldError("Email") != null)
+                            {
+                                <div class="field-error">@GetFieldError("Email")</div>
+                            }
                         </div>
                         
                         <div class="form-group">
                             <label for="company">Bedrift</label>
-                            <input type="text" id="company" @bind="contactForm.Company" class="form-input" />
+                            <input type="text" id="company" @bind="contactForm.Company" class="form-input" 
+                                   placeholder="Bedriftens navn (valgfritt)" />
                         </div>
                         
                         <div class="form-group">
                             <label for="phone">Telefon</label>
-                            <input type="tel" id="phone" @bind="contactForm.Phone" class="form-input" />
+                            <input type="tel" id="phone" @bind="contactForm.Phone" class="form-input" 
+                                   placeholder="+47 123 45 678" />
                         </div>
                         
                         <div class="form-group">
                             <label for="projectType">Type prosjekt</label>
                             <select id="projectType" @bind="contactForm.ProjectType" class="form-select">
-                                <option value="">Velg type prosjekt</option>
+                                <option value="">Velg type prosjekt (valgfritt)</option>
                                 <option value="webapp">Webapplikasjon</option>
                                 <option value="mobile">Mobilapplikasjon</option>
                                 <option value="api">API utvikling</option>
                                 <option value="consultation">IT-konsultasjon</option>
                                 <option value="architecture">Systemarkitektur</option>
                                 <option value="integration">Integrasjoner</option>
+                                <option value="modernization">Modernisering av systemer</option>
                                 <option value="other">Annet</option>
                             </select>
                         </div>
@@ -97,41 +109,48 @@
                         <div class="form-group">
                             <label for="budget">Estimert budsjett</label>
                             <select id="budget" @bind="contactForm.Budget" class="form-select">
-                                <option value="">Velg budsjettramme</option>
+                                <option value="">Velg budsjettramme (valgfritt)</option>
                                 <option value="under-100k">Under 100.000 kr</option>
                                 <option value="100k-300k">100.000 - 300.000 kr</option>
                                 <option value="300k-500k">300.000 - 500.000 kr</option>
                                 <option value="500k-1m">500.000 - 1.000.000 kr</option>
                                 <option value="over-1m">Over 1.000.000 kr</option>
+                                <option value="discuss">Ønsker å diskutere</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
                             <label for="timeline">Ønsket oppstart</label>
                             <select id="timeline" @bind="contactForm.Timeline" class="form-select">
-                                <option value="">Velg tidsramme</option>
+                                <option value="">Velg tidsramme (valgfritt)</option>
                                 <option value="asap">Snarest mulig</option>
                                 <option value="1-month">Innen 1 måned</option>
                                 <option value="3-months">Innen 3 måneder</option>
                                 <option value="6-months">Innen 6 måneder</option>
-                                <option value="flexible">Fleksibel</option>
+                                <option value="flexible">Fleksibel tidsramme</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
                             <label for="message">Prosjektbeskrivelse *</label>
-                            <textarea id="message" @bind="contactForm.Message" required class="form-textarea" 
-                                      placeholder="Beskriv kort hva du ønsker hjelp med. Jo mer informasjon, desto bedre kan vi hjelpe deg."></textarea>
+                            <textarea id="message" @bind="contactForm.Message" required class="@GetFieldClass("Message")" 
+                                      placeholder="Fortell oss om ditt prosjekt. Jo mer informasjon desto bedre kan vi hjelpe deg. Inkluder gjerne tekniske krav, målgruppe og særskilte ønsker."></textarea>
+                            @if (GetFieldError("Message") != null)
+                            {
+                                <div class="field-error">@GetFieldError("Message")</div>
+                            }
                         </div>
                         
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary btn-large" disabled="@isSubmitting">
                                 @if (isSubmitting)
                                 {
-                                    <span>Sender...</span>
+                                    <span class="spinner"></span>
+                                    <span>Sender melding...</span>
                                 }
                                 else
                                 {
+                                    <span>📧</span>
                                     <span>Send melding</span>
                                 }
                             </button>
@@ -140,7 +159,15 @@
                         @if (!string.IsNullOrEmpty(submitMessage))
                         {
                             <div class="submit-message @(submitSuccess ? "success" : "error")">
-                                @submitMessage
+                                @if (submitSuccess)
+                                {
+                                    <span class="message-icon">✅</span>
+                                }
+                                else
+                                {
+                                    <span class="message-icon">⚠️</span>
+                                }
+                                <span>@submitMessage</span>
                             </div>
                         }
                     </form>
@@ -156,87 +183,43 @@
             <h2>Ofte stilte spørsmål</h2>
             <p>Svar på de vanligste spørsmålene vi får</p>
         </div>
-        
-        <div class="faq-grid">
+          <div class="faq-grid">
             <div class="faq-item">
-                <h3>Hvor lang tid tar et typisk prosjekt?</h3>
+                <h3>🕐 Hvor lang tid tar et typisk prosjekt?</h3>
                 <p>
-                    Det varierer basert på kompleksitet. Enkle webapplikasjoner kan ta 4-8 uker, 
+                    Det varierer basert på kompleksitet og omfang. Enkle webapplikasjoner kan ta 4-8 uker, 
                     mens større systemer kan ta 3-6 måneder eller mer. Vi gir alltid en detaljert 
-                    tidsplan tidlig i prosessen.
+                    tidsplan tidlig i prosessen, og holder deg oppdatert underveis.
                 </p>
             </div>
             
             <div class="faq-item">
-                <h3>Tilbyr dere vedlikehold etter lansering?</h3>
+                <h3>🛠️ Tilbyr dere vedlikehold etter lansering?</h3>
                 <p>
-                    Ja, vi tilbyr både akutt support og planlagt vedlikehold. Vi kan også 
-                    videreutvikle systemet etter hvert som dine behov endrer seg.
+                    Absolutt! Vi tilbyr både akutt support og planlagt vedlikehold. Vi kan også 
+                    videreutvikle systemet etter hvert som dine behov endrer seg. Vi tror på 
+                    langsiktige partnerskap, ikke bare engangsprosjekter.
                 </p>
             </div>
             
             <div class="faq-item">
-                <h3>Hvor mye koster et prosjekt?</h3>
+                <h3>💰 Hvor mye koster et prosjekt?</h3>
                 <p>
                     Prisene varierer betydelig basert på omfang og kompleksitet. Vi tilbyr 
-                    alltid en gratis konsultasjon hvor vi kan gi deg et estimat basert på 
-                    dine spesifikke behov.
+                    alltid en gratis og uforpliktende konsultasjon hvor vi kan gi deg et 
+                    realistisk estimat basert på dine spesifikke behov og ønsker.
                 </p>
             </div>
             
             <div class="faq-item">
-                <h3>Jobber dere med små bedrifter?</h3>
+                <h3>🏢 Jobber dere med små bedrifter?</h3>
                 <p>
-                    Absolutt! Vi jobber med alt fra enkeltpersonforetak til store konsern. 
-                    Vi tilpasser våre tjenester til din størrelse og budsjett.
+                    Selvfølgelig! Vi jobber med alt fra enkeltpersonforetak til store konsern. 
+                    Uansett størrelse på din bedrift, tilpasser vi våre tjenester til ditt 
+                    budsjett og dine behov. Alle fortjener gode teknologiløsninger.
                 </p>
             </div>
         </div>
     </div>
 </section>
 
-@code {
-    private ContactFormModel contactForm = new();
-    private bool isSubmitting = false;
-    private string submitMessage = "";
-    private bool submitSuccess = false;
-
-    private async Task HandleSubmit()
-    {
-        isSubmitting = true;
-        submitMessage = "";
-        
-        try
-        {
-            // Simulate form submission
-            await Task.Delay(1000);
-            
-            // Here you would typically send the form to your backend API
-            // For now, we'll just simulate success
-            submitSuccess = true;
-            submitMessage = "Takk for din henvendelse! Vi kommer tilbake til deg innen 24 timer.";
-            contactForm = new(); // Reset form
-        }
-        catch (Exception)
-        {
-            submitSuccess = false;
-            submitMessage = "Beklager, det oppstod en feil. Vennligst prøv igjen eller send oss en e-post direkte.";
-        }
-        finally
-        {
-            isSubmitting = false;
-        }
-    }
-
-    public class ContactFormModel
-    {
-        public string Name { get; set; } = "";
-        public string Email { get; set; } = "";
-        public string Company { get; set; } = "";
-        public string Phone { get; set; } = "";
-        public string ProjectType { get; set; } = "";
-        public string Budget { get; set; } = "";
-        public string Timeline { get; set; } = "";
-        public string Message { get; set; } = "";
-    }
-}

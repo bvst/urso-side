@@ -165,7 +165,16 @@
                 "--project",
                 "${workspaceFolder}/src/Backend/Backend.csproj"
             ],
-            "problemMatcher": "$msCompile",
+            "problemMatcher": [
+                {
+                    "base": "$msCompile",
+                    "background": {
+                        "activeOnStart": true,
+                        "beginsPattern": "^info: Microsoft\\.Hosting\\.Lifetime\\[14\\]$",
+                        "endsPattern": "^info: Microsoft\\.Hosting\\.Lifetime\\[0\\]$|^Application started\\. Press Ctrl\\+C to shut down\\.$"
+                    }
+                }
+            ],
             "group": "build",
             "isBackground": true,
             "presentation": {
@@ -190,7 +199,16 @@
                 "--project",
                 "${workspaceFolder}/src/Frontend/Frontend.csproj"
             ],
-            "problemMatcher": "$msCompile",
+            "problemMatcher": [
+                {
+                    "base": "$msCompile",
+                    "background": {
+                        "activeOnStart": true,
+                        "beginsPattern": "^info: Microsoft\\.Hosting\\.Lifetime\\[14\\]$",
+                        "endsPattern": "^info: Microsoft\\.Hosting\\.Lifetime\\[0\\]$|^Application started\\. Press Ctrl\\+C to shut down\\.$"
+                    }
+                }
+            ],
             "group": "build",
             "isBackground": true,
             "presentation": {
