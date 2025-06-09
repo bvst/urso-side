@@ -1,0 +1,24 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/universal:latest",
+    "features": {
+        // Legg til andre nødvendige SDK-versjoner som funksjoner
+        "ghcr.io/devcontainers/features/dotnet:1": {
+            "version": "9.0", // Legg til .NET 9
+            "additionalSdkVersions": "10.0.100-preview.1" // Legg til .NET 10 Preview (juster versjonsnummeret nøyaktig)
+        }
+        // Legg til andre features du trenger, f.eks. Docker in Docker, Git, etc.
+        // "ghcr.io/devcontainers/features/docker-in-docker:1": {
+        //   "version": "latest"
+        // }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-dotnettools.csdevkit", // .NET C# Dev Kit
+                "ms-dotnettools.vscode-dotnet-runtime" // .NET Install Tool (hvis du trenger å installere SDKs on-the-fly)
+                // Andre extensions du bruker, f.eks. Copilot
+            ]
+        }
+    },
+    "postCreateCommand": "dotnet restore" // Eksempel: Kjør dotnet restore etter opprettelse
+}
