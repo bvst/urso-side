@@ -1,24 +1,67 @@
+// .devcontainer/devcontainer.json
 {
+    // Bruk det universelle dev container-bildet som inkluderer mange språk
     "image": "mcr.microsoft.com/devcontainers/universal:latest",
     "features": {
-        // Legg til andre nødvendige SDK-versjoner som funksjoner
+        // --- .NET SDKs ---
+        // Legg til .NET-funksjonen for å få spesifikke .NET SDK-versjoner
         "ghcr.io/devcontainers/features/dotnet:1": {
-            "version": "9.0", // Legg til .NET 9
-            "additionalSdkVersions": "10.0.100-preview.1" // Legg til .NET 10 Preview (juster versjonsnummeret nøyaktig)
-        }
-        // Legg til andre features du trenger, f.eks. Docker in Docker, Git, etc.
-        // "ghcr.io/devcontainers/features/docker-in-docker:1": {
-        //   "version": "latest"
-        // }
+            "version": "8.0", // Du kan sette en standard LTS-versjon her
+            "additionalSdkVersions": "9.0,10.0.100-preview.4" // Legg til .NET 9 og .NET 10 Preview
+        },
+        // --- Node.js (hvis du trenger spesifikke versjoner utover det Universal Image tilbyr) ---
+        // Universal Image kommer med Node.js, men hvis du trenger spesifikke versjoner
+        // eller ønsker å bytte mellom dem, kan du legge til NVM (Node Version Manager)
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "lts", // Installer den nyeste LTS Node.js
+            "nodeGypDependencies": true, // Installer avhengigheter for native moduler
+            "nvmInstallDir": "/usr/local/share/nvm" // Standard NVM installasjonskatalog
+        },
+        // Merk: Hvis du bare trenger standard Node.js (den Universal Image leveres med),
+        // kan du hoppe over "node:1" feature, men det er nyttig for versjonskontroll.
+        // --- Andre generelle utviklingsverktøy (valgfritt, men nyttig) ---
+        // Legg til Docker-in-Docker hvis du skal kjøre Docker-kommandoer *inne* i Codespacen
+        // for f.eks. containeriserte applikasjoner eller databaser
+        "ghcr.io/devcontainers/features/docker-in-docker:1": {
+            "version": "latest",
+            "moby": true
+        },
+        // Git, Zsh, Oh My Zsh er ofte inkludert i Universal Image, men kan spesifiseres
+        // "ghcr.io/devcontainers/features/git:1": {},
+        // "ghcr.io/devcontainers/features/oh-my-zsh:1": {}
     },
     "customizations": {
         "vscode": {
             "extensions": [
-                "ms-dotnettools.csdevkit", // .NET C# Dev Kit
-                "ms-dotnettools.vscode-dotnet-runtime" // .NET Install Tool (hvis du trenger å installere SDKs on-the-fly)
-                // Andre extensions du bruker, f.eks. Copilot
-            ]
+                // .NET Extensions
+                "ms-dotnettools.csdevkit",
+                "ms-dotnettools.vscode-dotnet-runtime",
+                // Node.js / JavaScript Extensions
+                "esbenp.prettier-vscode", // For kodeformatering
+                "dbaeumer.vscode-eslint", // For JavaScript/TypeScript linting
+                // Generelle verktøy og AI
+                "github.copilot", // Selvfølgelig!
+                "ms-vscode.live-share", // For samarbeid
+                "ms-vscode.remote-explorer", // Hvis du vil utforske codespacen fra desktop VS Code
+                "ms-vscode.remote-containers", // For Codespaces generelt
+                "eamodio.gitlens" // For Git forbedringer
+            ],
+            "settings": {
+                // Eksempel på VS Code innstillinger som blir brukt i Codespacen
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "bash"
+                    }
+                },
+                "files.autoSave": "afterDelay",
+                "dotnet.defaultSolution": "${workspaceFolder}/UrsoSide.sln" // Eksempel på .NET spesifikk innstilling
+            }
         }
     },
-    "postCreateCommand": "dotnet restore" // Eksempel: Kjør dotnet restore etter opprettelse
+    "postCreateCommand": "npm install && dotnet restore", // Eksempel: Kjør kommandoer etter at codespacen er opprettet
+    // Dette vil kjøre npm install for JavaScript/Node.js prosjekter
+    // og dotnet restore for .NET prosjekter.
+    // Du kan legge til flere her, f.eks. pip install -r requirements.txt
+    // avhengig av prosjektets behov.
 }
